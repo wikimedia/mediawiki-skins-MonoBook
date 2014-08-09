@@ -40,7 +40,9 @@ $wgAutoloadClasses['MonoBookTemplate'] = __DIR__ . '/MonoBookTemplate.php';
 $wgMessagesDirs['MonoBook'] = __DIR__ . '/i18n';
 
 // Register skin
-$wgValidSkinNames['monobook'] = 'MonoBook';
+SkinFactory::getDefaultInstance()->register( 'monobook', 'MonoBook', function() {
+	return new SkinMonoBook();
+} );
 
 // Register modules
 $wgResourceModules['skins.monobook.styles'] = array(
