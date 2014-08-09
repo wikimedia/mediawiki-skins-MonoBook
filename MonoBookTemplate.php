@@ -220,7 +220,6 @@ class MonoBookTemplate extends BaseTemplate {
 	}
 
 	function searchBox() {
-		global $wgUseTwoButtonsSearchForm;
 		?>
 		<div id="p-search" class="portlet" role="search">
 			<h3><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h3>
@@ -236,7 +235,7 @@ class MonoBookTemplate extends BaseTemplate {
 						array( "id" => "searchGoButton", "class" => "searchButton" )
 					);
 
-					if ( $wgUseTwoButtonsSearchForm ) {
+					if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
 						?>&#160;
 						<?php echo $this->makeSearchButton(
 							"fulltext",
