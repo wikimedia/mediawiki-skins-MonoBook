@@ -16,11 +16,16 @@ div#column-content {
 	padding: 0;
 }
 
-div#content {
+.mw-body {
 	margin: 2.8em 0 0 12.2em;
 	padding: 1em;
 	position: relative;
 	z-index: 2;
+	background: white;
+	color: black;
+	border: 1px solid #aaa;
+	border-right: none;
+	line-height: 1.5em;
 }
 
 div#column-one {
@@ -31,14 +36,6 @@ div#column-one {
 #column-one h2 {
 	position: absolute;
 	top: -9999px;
-}
-
-div#content {
-	background: white;
-	color: black;
-	border: 1px solid #aaa;
-	border-right: none;
-	line-height: 1.5em;
 }
 
 /* the left column width is specified in class .portlet */
