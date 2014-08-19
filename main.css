@@ -88,14 +88,6 @@ ul {
 	list-style-image: url(bullet.gif);
 }
 
-input.historysubmit {
-	padding: 0 .3em .3em .3em !important;
-	font-size: 94%;
-	cursor: pointer;
-	height: 1.7em !important;
-	margin-left: 1.6em;
-}
-
 pre, .mw-code {
 	line-height: 1.1em;
 }
