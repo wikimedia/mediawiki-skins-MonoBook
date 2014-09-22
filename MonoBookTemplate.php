@@ -126,8 +126,10 @@ class MonoBookTemplate extends BaseTemplate {
 				<?php
 				echo Html::element( 'a', array(
 						'href' => $this->data['nav_urls']['mainpage']['href'],
-						'style' => "background-image: url({$this->data['logopath']});" )
-					+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ); ?>
+						'class' => 'mw-wiki-logo',
+						)
+						+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
+				); ?>
 
 			</div>
 			<?php
