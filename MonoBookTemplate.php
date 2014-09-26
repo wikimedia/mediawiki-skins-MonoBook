@@ -183,6 +183,7 @@ class MonoBookTemplate extends BaseTemplate {
 		$this->printTrail();
 		echo Html::closeElement( 'body' );
 		echo Html::closeElement( 'html' );
+		echo "\n";
 		wfRestoreWarnings();
 	} // end of execute() method
 
