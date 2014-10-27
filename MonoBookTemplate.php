@@ -55,6 +55,7 @@ class MonoBookTemplate extends BaseTemplate {
 				}
 				?>
 
+				<?php echo $this->getIndicators(); ?>
 				<h1 id="firstHeading" class="firstHeading" lang="<?php
 				$this->data['pageLanguage'] =
 					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
