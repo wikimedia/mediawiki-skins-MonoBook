@@ -63,6 +63,8 @@ div#globalWrapper {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	position: relative;
+	z-index: 0;
 }
 
 /* general styles */
