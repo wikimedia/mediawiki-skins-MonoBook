@@ -31,7 +31,7 @@ $wgExtensionCredits['skin'][] = array(
 	'descriptionmsg' => 'monobook-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Skin:MonoBook',
 	'author' => array( 'Gabriel Wicke', '...' ),
-	'license-name' => 'GPLv2+',
+	'license-name' => 'GPL-2.0+',
 );
 
 // Register files
