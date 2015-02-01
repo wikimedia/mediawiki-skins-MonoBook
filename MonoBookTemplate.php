@@ -60,7 +60,7 @@ class MonoBookTemplate extends BaseTemplate {
 				$this->data['pageLanguage'] =
 					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 				$this->text( 'pageLanguage' );
-				?>"><span dir="auto"><?php $this->html( 'title' ) ?></span></h1>
+				?>"><?php $this->html( 'title' ) ?></h1>
 
 				<div id="bodyContent" class="mw-body-content">
 					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
