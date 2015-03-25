@@ -9,15 +9,13 @@
 	"namemsg": "skinname-monobook",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
+	"ValidSkinNames": {
+		"monobook": "MonoBook"
+	},
 	"MessagesDirs": {
 		"MonoBook": [
 			"i18n"
 		]
-	},
-	"config": {
-		"ValidSkinNames": {
-			"monobook": "MonoBook"
-		}
 	},
 	"ResourceModules": {
 		"skins.monobook.styles": {
@@ -25,10 +23,12 @@
 				"main.css": {
 					"media": "screen"
 				}
-			},
-			"remoteSkinPath": "MonoBook",
-			"localBasePath": ""
+			}
 		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "MonoBook"
 	},
 	"AutoloadClasses": {
 		"SkinMonoBook": "SkinMonoBook.php",
