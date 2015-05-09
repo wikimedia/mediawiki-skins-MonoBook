@@ -55,12 +55,16 @@ class MonoBookTemplate extends BaseTemplate {
 				}
 				?>
 
-				<?php echo $this->getIndicators(); ?>
+				<?php
+				echo $this->getIndicators();
+				if ( !empty( $this->data['title'] ) ) {
+				?>
 				<h1 id="firstHeading" class="firstHeading" lang="<?php
 				$this->data['pageLanguage'] =
 					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 				$this->text( 'pageLanguage' );
 				?>"><?php $this->html( 'title' ) ?></h1>
+				<?php } ?>
 
 				<div id="bodyContent" class="mw-body-content">
 					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
