@@ -34,5 +34,6 @@
 	"AutoloadClasses": {
 		"SkinMonoBook": "SkinMonoBook.php",
 		"MonoBookTemplate": "MonoBookTemplate.php"
-	}
+	},
+	"manifest_version": 1
 }
