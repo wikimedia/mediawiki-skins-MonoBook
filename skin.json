@@ -12,6 +12,9 @@
 	"ValidSkinNames": {
 		"monobook": "MonoBook"
 	},
+	"SkinOOUIThemes": {
+		"monobook": "apex"
+	},
 	"MessagesDirs": {
 		"MonoBook": [
 			"i18n"
