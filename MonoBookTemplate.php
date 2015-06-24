@@ -57,7 +57,7 @@ class MonoBookTemplate extends BaseTemplate {
 
 				<?php
 				echo $this->getIndicators();
-				if ( !empty( $this->data['title'] ) ) {
+				if ( isset( $this->data['title'] ) ) {
 				?>
 				<h1 id="firstHeading" class="firstHeading" lang="<?php
 				$this->data['pageLanguage'] =
