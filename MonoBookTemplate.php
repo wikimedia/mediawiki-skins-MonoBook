@@ -57,7 +57,8 @@ class MonoBookTemplate extends BaseTemplate {
 
 				<?php
 				echo $this->getIndicators();
-				if ( isset( $this->data['title'] ) ) {
+				// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
+				if ( $this->data['title'] != '' ) {
 				?>
 				<h1 id="firstHeading" class="firstHeading" lang="<?php
 				$this->data['pageLanguage'] =
