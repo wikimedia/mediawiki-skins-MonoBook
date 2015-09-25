@@ -6,7 +6,7 @@
 			"Matma Rex"
 		]
 	},
-	"skinname-monobook": "{{optional}}",
+	"monobook-skinname": "{{optional}}",
 	"monobook-desc": "{{desc|what=skin|name=MonoBook|url=https://www.mediawiki.org/wiki/Skin:MonoBook}}",
 	"monobook.css": "{{optional}}\nCSS applied to users using MonoBook skin.",
 	"monobook.js": "{{optional}}\nJS for users using MonoBook skin."
