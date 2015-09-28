@@ -1,12 +1,12 @@
 {
 	"name": "MonoBook",
-	"namemsg": "monobook-skinname",
 	"author": [
 		"Gabriel Wicke",
 		"..."
 	],
 	"url": "https://www.mediawiki.org/wiki/Skin:MonoBook",
 	"descriptionmsg": "monobook-desc",
+	"namemsg": "skinname-monobook",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
 	"requires": {
