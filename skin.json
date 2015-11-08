@@ -37,6 +37,11 @@
 		"localBasePath": "",
 		"remoteSkinPath": "MonoBook"
 	},
+	"ResourceModuleSkinStyles": {
+		"monobook": {
+			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less"
+		}
+	},
 	"AutoloadClasses": {
 		"SkinMonoBook": "SkinMonoBook.php",
 		"MonoBookTemplate": "MonoBookTemplate.php"
