@@ -361,10 +361,14 @@ li#pt-login {
 	text-transform: lowercase;
 }
 
-/* Don't lowercase username or IP addresses (IPv6) */
-li#pt-userpage,
-li#pt-anonuserpage {
+/* Don't lowercase username */
+li#pt-userpage {
 	text-transform: none;
+}
+
+/* "Not logged in" text in gray */
+li#pt-anonuserpage {
+	color: #707070;
 }
 
 #p-personal li.active {
