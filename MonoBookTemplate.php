@@ -119,7 +119,17 @@ class MonoBookTemplate extends BaseTemplate {
 
 				<div class="pBody">
 					<ul<?php $this->html( 'userlangattributes' ) ?>>
-						<?php foreach ( $this->getPersonalTools() as $key => $item ) { ?>
+						<?php
+						if ( !$this->getSkin()->getUser()->isLoggedIn() &&
+							User::groupHasPermission( '*', 'edit' ) ) {
+
+							echo Html::rawElement( 'li', array(
+								'id' => 'pt-anonuserpage'
+							), $this->getMsg( 'notloggedin' )->escaped() );
+
+						}
+
+						foreach ( $this->getPersonalTools() as $key => $item ) { ?>
 							<?php echo $this->makeListItem( $key, $item ); ?>
 
 						<?php
