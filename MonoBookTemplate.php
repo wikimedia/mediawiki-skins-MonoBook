@@ -39,7 +39,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		// Suppress warnings to prevent notices about missing indexes in $this->data
-		\MediaWiki\suppressWarnings();
+		wfSuppressWarnings();
 
 		$this->html( 'headelement' );
 		?><div id="globalWrapper">
@@ -192,7 +192,7 @@ class MonoBookTemplate extends BaseTemplate {
 		echo Html::closeElement( 'body' );
 		echo Html::closeElement( 'html' );
 		echo "\n";
-		\MediaWiki\suppressWarnings();
+		wfRestoreWarnings();
 	} // end of execute() method
 
 	/*************************************************************************************************/
