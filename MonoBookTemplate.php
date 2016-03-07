@@ -37,7 +37,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 *
 	 * @access private
 	 */
-	function execute() {
+	public function execute() {
 		// Suppress warnings to prevent notices about missing indexes in $this->data
 		wfSuppressWarnings();
 
