@@ -120,6 +120,14 @@ class MonoBookTemplate extends BaseTemplate {
 				<div class="pBody">
 					<ul<?php $this->html( 'userlangattributes' ) ?>>
 						<?php
+
+						$personalTools = $this->getPersonalTools();
+
+						if ( array_key_exists( 'uls', $personalTools ) ) {
+							echo $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+							unset( $personalTools[ 'uls' ] );
+						}
+
 						if ( !$this->getSkin()->getUser()->isLoggedIn() &&
 							User::groupHasPermission( '*', 'edit' ) ) {
 
@@ -129,7 +137,7 @@ class MonoBookTemplate extends BaseTemplate {
 
 						}
 
-						foreach ( $this->getPersonalTools() as $key => $item ) { ?>
+						foreach ( $personalTools as $key => $item ) { ?>
 							<?php echo $this->makeListItem( $key, $item ); ?>
 
 						<?php
