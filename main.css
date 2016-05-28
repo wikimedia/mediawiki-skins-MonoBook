@@ -573,11 +573,6 @@ div.patrollink {
 	font-style: italic;
 }
 
-span.updatedmarker {
-	color: black;
-	background-color: #0f0;
-}
-
 .editExternally {
 	border: 1px solid gray;
 	background-color: #ffffff;
