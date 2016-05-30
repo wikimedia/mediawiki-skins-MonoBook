@@ -545,10 +545,6 @@ div#footer li {
 	padding-top: 2em;
 }
 
-#userloginlink a, #wpLoginattempt, #wpCreateaccount {
-	font-weight: bold;
-}
-
 /**
  * This was originally added by Gabriel Wicke in r3681 (committed on 25 May 2004)
  * with the commit message "tweaks to page history".
