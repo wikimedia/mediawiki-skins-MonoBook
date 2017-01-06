@@ -110,6 +110,7 @@ class MonoBookTemplate extends BaseTemplate {
 					<div class="visualClear"></div>
 				</div>
 			</div>
+			<?php Hooks::run( 'MonoBookAfterContent' ); ?>
 		</div>
 		<div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
@@ -333,6 +334,7 @@ class MonoBookTemplate extends BaseTemplate {
 			</div>
 		</div>
 	<?php
+		Hooks::run( 'MonoBookAfterToolbox' );
 	}
 
 	/*************************************************************************************************/
