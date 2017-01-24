@@ -36,9 +36,6 @@ class MonoBookTemplate extends BaseTemplate {
 	 * outputs a formatted page.
 	 */
 	public function execute() {
-		// Suppress warnings to prevent notices about missing indexes in $this->data
-		wfSuppressWarnings();
-
 		$this->html( 'headelement' );
 		?><div id="globalWrapper">
 		<div id="column-content">
@@ -206,7 +203,6 @@ class MonoBookTemplate extends BaseTemplate {
 		echo Html::closeElement( 'body' );
 		echo Html::closeElement( 'html' );
 		echo "\n";
-		wfRestoreWarnings();
 	} // end of execute() method
 
 	/*************************************************************************************************/
