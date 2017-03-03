@@ -44,7 +44,7 @@ class MonoBookTemplate extends BaseTemplate {
 				<?php
 				if ( $this->data['sitenotice'] ) {
 					?>
-					<div id="siteNotice"><?php
+					<div id="siteNotice" class="mw-body-content"><?php
 					$this->html( 'sitenotice' )
 					?></div><?php
 				}
