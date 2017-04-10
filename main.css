@@ -706,8 +706,3 @@ div.mw-lag-warn-high {
 .tipsy {
 	font-size: 127%;
 }
-
-/* mediawiki.notification */
-.skin-monobook .mw-notification {
-	box-shadow: 0 2px 5px 0 rgba( 0, 0, 0, 0.125 );
-}
