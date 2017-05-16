@@ -60,7 +60,9 @@ class MonoBookTemplate extends BaseTemplate {
 					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 				$this->text( 'pageLanguage' );
 				?>"><?php $this->html( 'title' ) ?></h1>
-				<?php } ?>
+				<?php
+				}
+				?>
 
 				<div id="bodyContent" class="mw-body-content">
 					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
@@ -126,27 +128,27 @@ class MonoBookTemplate extends BaseTemplate {
 						if ( !$this->getSkin()->getUser()->isLoggedIn() &&
 							User::groupHasPermission( '*', 'edit' ) ) {
 
-							echo Html::rawElement( 'li', array(
+							echo Html::rawElement( 'li', [
 								'id' => 'pt-anonuserpage'
-							), $this->getMsg( 'notloggedin' )->escaped() );
+							], $this->getMsg( 'notloggedin' )->escaped() );
 						}
 
 						foreach ( $personalTools as $key => $item ) { ?>
 							<?php echo $this->makeListItem( $key, $item ); ?>
 
 						<?php
-}
+						}
 						?>
 					</ul>
 				</div>
 			</div>
 			<div class="portlet" id="p-logo" role="banner">
 				<?php
-				echo Html::element( 'a', array(
+				echo Html::element( 'a', [
 						'href' => $this->data['nav_urls']['mainpage']['href'],
 						'class' => 'mw-wiki-logo',
-						)
-						+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
+					]
+					+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
 				); ?>
 
 			</div>
@@ -250,19 +252,19 @@ class MonoBookTemplate extends BaseTemplate {
 			<div id="searchBody" class="pBody">
 				<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 					<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-					<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
+					<?php echo $this->makeSearchInput( [ 'id' => 'searchInput' ] ); ?>
 
 					<?php
 					echo $this->makeSearchButton(
 						'go',
-						array( 'id' => 'searchGoButton', 'class' => 'searchButton' )
+						[ 'id' => 'searchGoButton', 'class' => 'searchButton' ]
 					);
 
 					if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
 						?>&#160;
 						<?php echo $this->makeSearchButton(
 							'fulltext',
-							array( 'id' => 'mw-searchButton', 'class' => 'searchButton' )
+							[ 'id' => 'mw-searchButton', 'class' => 'searchButton' ]
 						);
 					} else {
 						?>
@@ -318,8 +320,8 @@ class MonoBookTemplate extends BaseTemplate {
 
 					<?php
 					}
-					Hooks::run( 'MonoBookTemplateToolboxEnd', array( &$this ) );
-					Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+					Hooks::run( 'MonoBookTemplateToolboxEnd', [ &$this ] );
+					Hooks::run( 'SkinTemplateToolboxEnd', [ &$this, true ] );
 					?>
 				</ul>
 				<?php $this->renderAfterPortlet( 'tb' ); ?>
@@ -359,11 +361,11 @@ class MonoBookTemplate extends BaseTemplate {
 	 * @param array|string $cont
 	 */
 	function customBox( $bar, $cont ) {
-		$portletAttribs = array(
+		$portletAttribs = [
 			'class' => 'generated-sidebar portlet',
 			'id' => Sanitizer::escapeId( "p-$bar" ),
 			'role' => 'navigation'
-		);
+		];
 
 		$tooltip = Linker::titleAttrib( "p-$bar" );
 		if ( $tooltip !== false ) {
