@@ -603,37 +603,6 @@ div.noarticletext {
 	color: #000;
 }
 
-div#searchTargetContainer {
-	left: 10px;
-	top: 10px;
-	width: 90%;
-	background: #fff;
-}
-
-div#searchTarget {
-	padding: 3px;
-	margin: 5px;
-	background: #f0f0f0;
-	border: solid 1px #00f;
-}
-
-div#searchTarget ul li {
-	list-style-type: none;
-	list-style-image: none;
-}
-
-div#searchTarget ul li:before {
-	color: #ffa500;
-	content: '\00BB \0020';
-}
-
-div#searchTargetHide {
-	float: right;
-	border: solid 1px #000;
-	background: #dcdcdc;
-	padding: 2px;
-}
-
 #powersearch p {
 	margin-top: 0;
 }
