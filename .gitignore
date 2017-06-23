@@ -18,7 +18,7 @@ sublime-*
 sftp-config.json
 
 # Building & testing
-node_modules/
+/node_modules
 
 # Composer
 /vendor
