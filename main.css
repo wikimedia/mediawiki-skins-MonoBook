@@ -28,6 +28,10 @@ div#column-content {
 	line-height: 1.5em;
 }
 
+div#column-one {
+	padding-top: 160px;
+}
+
 /* Hide, but keep accessible for screen-readers */
 #column-one h2 {
 	position: absolute;
@@ -208,8 +212,11 @@ table.rimage {
 */
 
 #p-logo {
+	top: 0;
+	left: 0;
+	position: absolute; /*needed to use z-index */
+	z-index: 3;
 	height: 155px;
-	margin-bottom: 5px;
 	width: 12em;
 	overflow: visible;
 }
