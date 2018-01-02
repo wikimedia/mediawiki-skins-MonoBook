@@ -41,7 +41,8 @@
 		"monobook": {
 			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.css",
 			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less",
-			"+mediawiki.notification": "skinStyles/mediawiki.notification.less"
+			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
+			"+oojs-ui-core.styles": "skinStyles/ooui.less"
 		}
 	},
 	"AutoloadClasses": {
