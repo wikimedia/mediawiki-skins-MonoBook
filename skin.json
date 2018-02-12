@@ -25,7 +25,6 @@
 	},
 	"ResourceModules": {
 		"skins.monobook.styles": {
-			"position": "top",
 			"styles": {
 				"main.css": {
 					"media": "screen"
