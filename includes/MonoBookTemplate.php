@@ -110,7 +110,10 @@ class MonoBookTemplate extends BaseTemplate {
 		</div>
 		<div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-			<?php $this->cactions(); ?>
+			<?php
+				// Print the content actions (cactions) bar
+				echo $this->getBox( 'cactions', $this->data['content_actions'], 'views' );
+			?>
 			<div class="portlet" id="p-personal" role="navigation">
 				<h3><?php $this->msg( 'personaltools' ) ?></h3>
 
@@ -152,7 +155,7 @@ class MonoBookTemplate extends BaseTemplate {
 
 			</div>
 			<?php
-			$this->renderPortals( $this->data['sidebar'] );
+			echo $this->getRenderedSidebar();
 			?>
 		</div><!-- end of the left (by default at least) column -->
 		<div class="visualClear"></div>
@@ -209,9 +212,14 @@ class MonoBookTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @param array $sidebar
+	 * Generate the full sidebar
+	 *
+	 * @return string html
 	 */
-	protected function renderPortals( $sidebar ) {
+	protected function getRenderedSidebar() {
+		$sidebar = $this->data['sidebar'];
+		$html = '';
+
 		if ( !isset( $sidebar['SEARCH'] ) ) {
 			$sidebar['SEARCH'] = true;
 		}
@@ -231,172 +239,283 @@ class MonoBookTemplate extends BaseTemplate {
 			$boxName = (string)$boxName;
 
 			if ( $boxName == 'SEARCH' ) {
-				$this->searchBox();
+				$html .= $this->getSearchBox();
 			} elseif ( $boxName == 'TOOLBOX' ) {
-				$this->toolbox();
+				$html .= $this->getToolboxBox();
 			} elseif ( $boxName == 'LANGUAGES' ) {
-				$this->languageBox();
+				$html .= $this->getLanguageBox();
 			} else {
-				$this->customBox( $boxName, $content );
+				$html .= $this->getBox(
+					$boxName,
+					$content,
+					null,
+					[ 'extra-classes' => 'generated-sidebar' ]
+				);
 			}
 		}
-	}
 
-	function searchBox() {
-		?>
-		<div id="p-search" class="portlet" role="search">
-			<h3><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h3>
-
-			<div id="searchBody" class="pBody">
-				<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-					<input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-					<?php echo $this->makeSearchInput( [ 'id' => 'searchInput' ] ); ?>
-
-					<?php
-					echo $this->makeSearchButton(
-						'go',
-						[ 'id' => 'searchGoButton', 'class' => 'searchButton' ]
-					);
-
-					if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
-						?>&#160;
-						<?php echo $this->makeSearchButton(
-							'fulltext',
-							[ 'id' => 'mw-searchButton', 'class' => 'searchButton' ]
-						);
-					} else {
-						?>
-
-						<div><a href="<?php
-						$this->text( 'searchaction' )
-						?>" rel="search"><?php $this->msg( 'powersearch-legend' ) ?></a></div><?php
-					} ?>
-
-				</form>
-
-				<?php $this->renderAfterPortlet( 'search' ); ?>
-			</div>
-		</div>
-	<?php
+		return $html;
 	}
 
 	/**
-	 * Prints the content actions (cactions) bar.
-	 * Shared between MonoBook and Modern
+	 * Generate the search, using config options for buttons (?)
+	 *
+	 * @return string html
 	 */
-	function cactions() {
-		?>
-		<div id="p-cactions" class="portlet" role="navigation">
-			<h3><?php $this->msg( 'views' ) ?></h3>
+	protected function getSearchBox() {
+		$html = '';
 
-			<div class="pBody">
-				<ul><?php
-					foreach ( $this->data['content_actions'] as $key => $tab ) {
-						echo '
-				' . $this->makeListItem( $key, $tab );
-					} ?>
+		if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
+			$optionButtons = '&#160; ' . $this->makeSearchButton(
+				'fulltext',
+				[ 'id' => 'mw-searchButton', 'class' => 'searchButton' ]
+			);
+		} else {
+			$optionButtons = Html::rawElement( 'div', [],
+				Html::rawElement( 'a', [ 'href' => $this->get( 'searchaction' ), 'rel' => 'search' ],
+					$this->getMsg( 'powersearch-legend' )->escaped()
+				)
+			);
+		}
+		$searchInputId = 'searchInput';
+		$searchForm = Html::rawElement( 'form', [
+			'action' => $this->get( 'wgScript' ),
+			'id' => 'searchform'
+		],
+			Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
+			$this->makeSearchInput( [ 'id' => $searchInputId ] ) .
+			$this->makeSearchButton( 'go', [ 'id' => 'searchGoButton', 'class' => 'searchButton' ] ) .
+			$optionButtons
+		);
 
-				</ul>
-				<?php $this->renderAfterPortlet( 'cactions' ); ?>
-			</div>
-		</div>
-	<?php
+		$html .= $this->getBox( 'search', $searchForm, null, [
+			'search-input-id' => $searchInputId,
+			'role' => 'search',
+			'body-id' => 'searchBody'
+		] );
+
+		return $html;
 	}
 
-	function toolbox() {
-		?>
-		<div class="portlet" id="p-tb" role="navigation">
-			<h3><?php $this->msg( 'toolbox' ) ?></h3>
+	/**
+	 * Generate the toolbox, complete with all three old hooks
+	 *
+	 * @return string html
+	 */
+	protected function getToolboxBox() {
+		$html = '';
+		$skin = $this;
 
-			<div class="pBody">
-				<ul>
-					<?php
-					foreach ( $this->getToolbox() as $key => $tbitem ) {
-						?>
-						<?php echo $this->makeListItem( $key, $tbitem ); ?>
+		$html .= $this->getBox( 'tb', $this->getToolbox(), 'toolbox', [ 'hooks' => [
+			// Deprecated hooks
+			'MonoBookTemplateToolboxEnd' => [ &$skin ],
+			'SkinTemplateToolboxEnd' => [ &$skin, true ]
+		] ] );
 
-					<?php
-					}
-					// Avoid PHP 7.1 warnings
-					$skin = $this;
-					Hooks::run( 'MonoBookTemplateToolboxEnd', [ &$skin ] );
-					Hooks::run( 'SkinTemplateToolboxEnd', [ &$skin, true ] );
-					?>
-				</ul>
-				<?php $this->renderAfterPortlet( 'tb' ); ?>
-			</div>
-		</div>
-	<?php
+		// HACK: ANOTHER stupid hook
+		$hookContents = '';
+		ob_start();
 		Hooks::run( 'MonoBookAfterToolbox' );
-	}
-
-	function languageBox() {
-		if ( $this->data['language_urls'] !== false ) {
-			?>
-			<div id="p-lang" class="portlet" role="navigation">
-				<h3<?php $this->html( 'userlangattributes' ) ?>><?php $this->msg( 'otherlanguages' ) ?></h3>
-
-				<div class="pBody">
-					<ul>
-						<?php foreach ( $this->data['language_urls'] as $key => $langLink ) { ?>
-							<?php echo $this->makeListItem( $key, $langLink ); ?>
-
-						<?php
-						}
-						?>
-					</ul>
-
-					<?php $this->renderAfterPortlet( 'lang' ); ?>
-				</div>
-			</div>
-		<?php
+		$hookContents = ob_get_contents();
+		ob_end_clean();
+		if ( !trim( $hookContents ) ) {
+			$hookContents = '';
 		}
+		// END hack
+
+		$html .= $hookContents;
+
+		return $html;
 	}
 
 	/**
-	 * @param string $bar
-	 * @param array|string $cont
+	 * Generate the languages box
+	 *
+	 * @return string html
 	 */
-	function customBox( $bar, $cont ) {
-		$portletAttribs = [
-			'class' => 'generated-sidebar portlet',
-			'id' => Sanitizer::escapeId( "p-$bar" ),
-			'role' => 'navigation'
-		];
+	protected function getLanguageBox() {
+		$html = '';
 
-		$tooltip = Linker::titleAttrib( "p-$bar" );
-		if ( $tooltip !== false ) {
-			$portletAttribs['title'] = $tooltip;
+		if ( $this->data['language_urls'] !== false ) {
+			$html .= $this->getBox( 'lang', $this->data['language_urls'], 'otherlanguages' );
 		}
-		echo '	' . Html::openElement( 'div', $portletAttribs );
-		$msgObj = wfMessage( $bar );
-		?>
 
-		<h3><?php echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $bar ); ?></h3>
-		<div class="pBody">
-			<?php
-			if ( is_array( $cont ) ) {
-				?>
-				<ul>
-					<?php
-					foreach ( $cont as $key => $val ) {
-						?>
-						<?php echo $this->makeListItem( $key, $val ); ?>
+		return $html;
+	}
 
-					<?php
-					}
-					?>
-				</ul>
-			<?php
-			} else {
-				# allow raw HTML block to be defined by extensions
-				print $cont;
+	/**
+	 * Generate a sidebar box using getPortlet(); prefill some common stuff
+	 *
+	 * @param string $name
+	 * @param array|string $contents
+	 * @param null|string|array|bool $msg
+	 * @param array $setOptions
+	 *
+	 * @return string html
+	 */
+	protected function getBox( $name, $contents, $msg = null, $setOptions = [] ) {
+		$options = [
+			'class' => 'portlet',
+			'body-class' => 'pBody',
+			'text-wrapper' => ''
+		];
+		foreach ( $setOptions as $key => $value ) {
+			$options[$key] = $value;
+		}
+
+		return $this->getPortlet( $name, $contents, $msg, $options );
+	}
+
+	/**
+	 * Generates a block of navigation links with a header
+	 *
+	 * @param string $name
+	 * @param array|string $content array of links for use with makeListItem, or a block of text
+	 * @param null|string|array $msg
+	 * @param array $setOptions random crap to rename/do/whatever
+	 *
+	 * @return string html
+	 */
+	protected function getPortlet( $name, $content, $msg = null, $setOptions = [] ) {
+		// random stuff to override with any provided options
+		$options = [
+			// handle role=search a little differently
+			'role' => 'navigation',
+			'search-input-id' => 'searchInput',
+			// extra classes/ids
+			'id' => 'p-' . $name,
+			'class' => 'mw-portlet',
+			'extra-classes' => '',
+			'body-id' => null,
+			'body-class' => 'mw-portlet-body',
+			'body-extra-classes' => '',
+			// wrapper for individual list items
+			'text-wrapper' => [ 'tag' => 'span' ],
+			// old toolbox hook support (use: [ 'SkinTemplateToolboxEnd' => [ &$skin, true ] ])
+			'hooks' => ''
+		];
+		// set options based on input
+		foreach ( $setOptions as $key => $value ) {
+			$options[$key] = $value;
+		}
+
+		// Handle the different $msg possibilities
+		if ( $msg === null ) {
+			$msg = $name;
+			$msgParams = [];
+		} elseif ( is_array( $msg ) ) {
+			$msgString = array_shift( $msg );
+			$msgParams = $msg;
+			$msg = $msgString;
+		} else {
+			$msgParams = [];
+		}
+		$msgObj = $this->getMsg( $msg, $msgParams );
+		if ( $msgObj->exists() ) {
+			$msgString = $msgObj->parse();
+		} else {
+			$msgString = htmlspecialchars( $msg );
+		}
+
+		// HACK: Compatibility with extensions still using SkinTemplateToolboxEnd or other stupid hooks
+		$hooksContents = '';
+		if ( is_array( $options['hooks'] ) ) {
+			foreach ( $options['hooks'] as $hook => $hookOptions ) {
+				ob_start();
+				Hooks::run( $hook, $hookOptions );
+				$hookContents = ob_get_contents();
+				ob_end_clean();
+				if ( !trim( $hookContents ) ) {
+					$hookContents = '';
+				}
+				$hooksContents .= $hookContents;
 			}
+		}
+		// END hack
 
-			$this->renderAfterPortlet( $bar );
-			?>
-		</div>
-		</div>
-	<?php
+		$labelId = Sanitizer::escapeId( "p-$name-label" );
+
+		if ( is_array( $content ) ) {
+			$contentText = Html::openElement( 'ul',
+				[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
+			);
+			foreach ( $content as $key => $item ) {
+				if ( is_array( $options['text-wrapper'] ) ) {
+					$contentText .= $this->makeListItem(
+						$key,
+						$item,
+						[ 'text-wrapper' => $options['text-wrapper'] ]
+					);
+				} else {
+					$contentText .= $this->makeListItem(
+						$key,
+						$item
+					);
+				}
+			}
+			// Add in hook crap, if any
+			$contentText .= $hooksContents;
+			$contentText .= Html::closeElement( 'ul' );
+		} else {
+			$contentText = $content;
+		}
+
+		// Special handling for role=search
+		$divOptions = [
+			'role' => $options['role'],
+			'class' => $this->mergeClasses( $options['class'], $options['extra-classes'] ),
+			'id' => Sanitizer::escapeId( $options['id'] ),
+			'title' => Linker::titleAttrib( $options['id'] )
+		];
+		if ( $options['role'] !== 'search' ) {
+			$divOptions['aria-labelledby'] = $labelId;
+		}
+		$labelOptions = [
+			'id' => $labelId,
+			'lang' => $this->get( 'userlang' ),
+			'dir' => $this->get( 'dir' )
+		];
+		if ( $options['role'] == 'search' ) {
+			$msgString = Html::rawElement( 'label', [ 'for' => $options['search-input-id'] ], $msgString );
+		}
+
+		$bodyDivOptions = [
+			'class' => $this->mergeClasses( $options['body-class'], $options['body-extra-classes'] )
+		];
+		if ( is_string( $options['body-id'] ) ) {
+			$bodyDivOptions['id'] = $options['body-id'];
+		}
+
+		$html = Html::rawElement( 'div', $divOptions,
+			Html::rawElement( 'h3', $labelOptions, $msgString ) .
+			Html::rawElement( 'div', $bodyDivOptions,
+				$contentText .
+				$this->getAfterPortlet( $name )
+			)
+		);
+
+		return $html;
+	}
+
+	/**
+	 * Helper function for getPortlet
+	 *
+	 * Merge all provided css classes into a single array
+	 * Account for possible different input methods matching what Html::element stuff takes
+	 *
+	 * @param string|array $class base portlet/body class
+	 * @param string|array $extraClasses any extra classes to also include
+	 *
+	 * @return array all classes to apply
+	 */
+	protected function mergeClasses( $class, $extraClasses ) {
+		if ( !is_array( $class ) ) {
+			$class = [ $class ];
+		}
+		if ( !is_array( $extraClasses ) ) {
+			$extraClasses = [ $extraClasses ];
+		}
+
+		return array_merge( $class, $extraClasses );
 	}
 }
