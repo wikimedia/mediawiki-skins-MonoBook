@@ -350,8 +350,7 @@ input.searchButton {
 
 /* The icon in front of the username / login link */
 li#pt-userpage,
-li#pt-anonuserpage,
-li#pt-login {
+li#pt-anonuserpage {
 	/* @embed */
 	background: url( user.gif ) top left no-repeat;
 	padding-left: 20px;
