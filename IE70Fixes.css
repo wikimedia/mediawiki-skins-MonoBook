@@ -92,7 +92,7 @@ div.tleft {
 }
 */
 
-div#footer li {
+#footer li {
 	/* Work around bug with inline <li> tags with right margins and nowrap */
 	margin-right: 0;
 }

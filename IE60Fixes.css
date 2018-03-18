@@ -30,12 +30,12 @@ div#column-one {
 	right: 0;
 }
 
-div#footer {
+#footer {
 	margin-left: 13.6em;
 	border-left: 1px solid #fabd23;
 }
 
-.rtl div#footer {
+.rtl #footer {
 	margin-left: 0;
 	margin-right: 13.6em;
 	border-left: 0;
@@ -43,7 +43,7 @@ div#footer {
 }
 
 /* float/negative margin brokenness */
-* html div#footer {
+* html #footer {
 	margin-top: 0;
 }
 
