@@ -26,7 +26,7 @@
 	"ResourceModules": {
 		"skins.monobook.styles": {
 			"styles": {
-				"main.css": {
+				"resources/main.css": {
 					"media": "screen"
 				}
 			}
@@ -38,15 +38,15 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"monobook": {
-			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.css",
-			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less",
-			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
-			"+oojs-ui-core.styles": "skinStyles/ooui.less"
+			"+mediawiki.action.view.redirectPage": "resources/skinStyles/mediawiki.action.view.redirectPage.css",
+			"+mediawiki.special.preferences.styles": "resources/skinStyles/mediawiki.special.preferences.styles.less",
+			"+mediawiki.notification": "resources/skinStyles/mediawiki.notification.less",
+			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less"
 		}
 	},
 	"AutoloadClasses": {
-		"SkinMonoBook": "SkinMonoBook.php",
-		"MonoBookTemplate": "MonoBookTemplate.php"
+		"SkinMonoBook": "includes/SkinMonoBook.php",
+		"MonoBookTemplate": "includes/MonoBookTemplate.php"
 	},
 	"manifest_version": 1
 }
