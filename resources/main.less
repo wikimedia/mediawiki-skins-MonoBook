@@ -9,6 +9,8 @@
 ** All you guys rock :)
 */
 
+@import 'mediawiki.mixins';
+
 div#column-content {
 	width: 100%;
 	float: right;
@@ -48,8 +50,11 @@ div#column-one {
 
 body {
 	font: x-small sans-serif;
-	/* @embed */
-	background: #f9f9f9 url( images/headbg.jpg ) 0 0 no-repeat;
+	background-color: #f9f9f9;
+	// don't bother with a fallback; the jpg book won't work with these anyway
+	.background-image-svg( 'images/headbg-gradient.svg', '' );
+	background-position: 0 0;
+	background-repeat: repeat-x;
 	color: #000;
 	margin: 0;
 	padding: 0;
@@ -60,6 +65,9 @@ body {
 /* scale back up to a sane default */
 div#globalWrapper {
 	font-size: 127%;
+	.background-image-svg( 'images/headbg.svg', 'images/headbg.jpg' );
+	background-position: 0 0;
+	background-repeat: no-repeat;
 	width: 100%;
 	margin: 0;
 	padding: 0;

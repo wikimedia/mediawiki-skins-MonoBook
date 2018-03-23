@@ -26,7 +26,7 @@
 	"ResourceModules": {
 		"skins.monobook.styles": {
 			"styles": {
-				"resources/main.css": {
+				"resources/main.less": {
 					"media": "screen"
 				}
 			}
