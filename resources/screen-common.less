@@ -9,35 +9,31 @@
 ** All you guys rock :)
 */
 
-@import 'mediawiki.mixins';
+@import 'variables.less';
+
+/*
+** Common styles across desktop and mobile
+*/
 
 div#column-content {
 	width: 100%;
-	float: right;
-	margin: 0 0 0.6em -12.2em;
+	margin: 0;
 	padding: 0;
 }
 
 .mw-body {
-	margin: 2.8em 0 0 12.2em;
 	padding: 1em;
 	position: relative;
 	z-index: 2;
-	background: #fff;
-	color: #000;
-	border: 1px solid #aaa;
-	border-right: 0;
+	background: @content-background;
+	color: @text-color;
+	border: 1px solid @content-border;
 	line-height: 1.5em;
-}
-
-div#column-one {
-	padding-top: 160px;
 }
 
 /* Hide, but keep accessible for screen-readers */
 #column-one h2 {
-	position: absolute;
-	top: -9999px;
+	.hidden();
 }
 
 /* the left column width is specified in class .portlet */
@@ -50,12 +46,12 @@ div#column-one {
 
 body {
 	font: x-small sans-serif;
-	background-color: #f9f9f9;
+	background-color: @background;
 	// don't bother with a fallback; the jpg book won't work with these anyway
 	.background-image-svg( 'images/headbg-gradient.svg', '' );
 	background-position: 0 0;
 	background-repeat: repeat-x;
-	color: #000;
+	color: @text-color;
 	margin: 0;
 	padding: 0;
 	direction: ltr; /* Needed for RTL flipping */
@@ -77,22 +73,21 @@ div#globalWrapper {
 
 /* general styles */
 a {
-	color: #002bb8;
+	color: @link;
 }
 
 a:visited {
-	color: #5a3696;
+	color: @link-visited;
 }
 
 a.new,
 #p-personal a.new {
-	color: #c20;
+	color: @link-new;
 }
 
 ul {
 	list-style-type: square;
-	/* @embed */
-	list-style-image: url( images/bullet.gif );
+	.list-style-image-svg( 'images/bullet.svg', 'images/bullet.gif' );
 }
 
 pre,
@@ -125,15 +120,15 @@ pre,
 #siteNotice {
 	font-size: 95%;
 	padding: 0 0.9em;
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 #localNotice {
 	margin: 0;
-}
-
-#siteNotice p {
-	margin: 0;
-	padding: 0;
 }
 
 /*
@@ -154,15 +149,6 @@ table.rimage {
 }
 
 /*
-** edit views etc
-*/
-.special li {
-	line-height: 1.4em;
-	margin: 0;
-	padding: 0;
-}
-
-/*
 ** Structural Elements
 */
 
@@ -170,198 +156,76 @@ table.rimage {
 ** general portlet styles (elements in the quickbar)
 */
 .portlet {
-	border: 0;
-	margin: 0 0 0.5em;
-	padding: 0;
-	float: none;
-	width: 11.6em;
 	overflow: hidden;
-}
 
-.portlet h3 {
-	background: transparent;
-	padding: 0 1em 0 0.5em;
-	display: inline;
-	height: 1em;
-	text-transform: lowercase;
-	font-size: 91%;
-	font-weight: normal;
-	white-space: nowrap;
+	h3 {
+		background: transparent;
+		display: inline;
+		height: 1em;
+		text-transform: lowercase;
+		font-size: 91%;
+		font-weight: normal;
+		white-space: nowrap;
+	}
+
+	ul {
+		line-height: 1.5em;
+		font-size: 95%;
+	}
+
+	li {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .pBody {
 	font-size: 95%;
-	background-color: #fff;
-	color: #000;
+	color: @text-color;
 	border-collapse: collapse;
-	border: 1px solid #aaa;
-	padding: 0 0.8em 0.3em 0.5em;
-}
 
-/* allows .pBody styles to wrap around content added via BaseTemplateAfterPortlet hook */
-.pBody:after {
-	content: '';
-	clear: both;
-	display: block;
-}
-
-.portlet ul {
-	line-height: 1.5em;
-	font-size: 95%;
-}
-
-.portlet li {
-	padding: 0;
-	margin: 0;
+	/* allows .pBody styles to wrap around content added via BaseTemplateAfterPortlet hook */
+	&:after {
+		content: '';
+		clear: both;
+		display: block;
+	}
 }
 
 /*
 ** Logo properties
 */
-
 #p-logo {
-	top: 0;
-	left: 0;
-	position: absolute; /*needed to use z-index */
+	position: absolute;
 	z-index: 3;
-	height: 155px;
-	width: 12em;
 	overflow: visible;
-}
 
-#p-logo h3 {
-	display: none;
-}
-
-#p-logo a,
-#p-logo a:hover {
-	display: block;
-	height: 155px;
-	width: 12.2em;
-	background-repeat: no-repeat;
-	background-position: 35% 50% !important; /* stylelint-disable-line declaration-no-important */
-	text-decoration: none;
-}
-
-/*
-** Search portlet
-*/
-#p-search {
-	position: relative;
-	z-index: 3;
-}
-
-input.searchButton {
-	margin-top: 1px;
-	font-size: 95%;
-}
-
-#searchGoButton {
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	font-weight: bold;
-}
-
-#searchInput {
-	width: 10.9em;
-	margin: 0;
-	font-size: 95%;
-}
-
-#p-search .pBody {
-	padding: 0.5em 0.4em 0.4em 0.4em;
-	text-align: center;
-}
-
-#p-search #searchform div div {
-	margin-top: 0.4em;
-	font-size: 95%;
+	a,
+	a:hover {
+		display: block;
+		background-repeat: no-repeat;
+		text-decoration: none;
+	}
 }
 
 /*
 ** the personal toolbar
 */
-#p-personal {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 3;
-
-	width: 100%;
-	white-space: nowrap;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	background: none;
-	overflow: visible;
-	line-height: 1.2em;
-}
 
 #p-personal h3 {
-	display: none;
-}
+	.hidden();
 
-#p-personal .portlet,
-#p-personal .pBody {
-	z-index: 0;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	overflow: visible;
-	background: none;
-}
+	li {
+		color: #2f6fab;
 
-/* this is the ul contained in the portlet */
-#p-personal ul {
-	border: 0;
-	line-height: 1.4em;
-	color: #2f6fab;
-	padding: 0;
-	padding-right: 2em;
-	/* Avoid overlap with the logo. */
-	padding-left: 14em;
-	margin: 0;
-	text-align: right;
-	list-style-type: none;
-	list-style-image: none;
-	z-index: 0;
-	background: none;
-	cursor: default;
-	text-transform: lowercase;
-}
+		a {
+			color: #005896;
+		}
 
-#p-personal li {
-	z-index: 0;
-	border: 0;
-	padding: 0;
-	display: inline;
-	color: #2f6fab;
-	margin-left: 1em;
-	line-height: 1.2em;
-	background: none;
-}
-
-#p-personal li a {
-	text-decoration: none;
-	color: #005896;
-	padding-bottom: 0.2em;
-}
-
-#p-personal li a:hover {
-	background-color: #fff;
-	text-decoration: none;
-}
-
-#p-personal li.active a:hover {
-	background-color: transparent;
-}
-
-/* The icon in front of the username / login link */
-li#pt-userpage,
-li#pt-anonuserpage {
-	/* @embed */
-	background: url( images/user.gif ) top left no-repeat;
-	padding-left: 20px;
+		&.active {
+			font-weight: bold;
+		}
+	}
 }
 
 /* Don't lowercase username */
@@ -371,119 +235,15 @@ li#pt-userpage {
 
 /* "Not logged in" text in gray */
 li#pt-anonuserpage {
-	color: #707070;
-}
-
-#p-personal li.active {
-	font-weight: bold;
+	color: @text-grey;
 }
 
 /*
 ** the page-related actions- page/talk, edit etc
 */
-#p-cactions {
-	position: absolute;
-	top: 1.3em;
-	left: 11.5em;
-	margin: 0;
-	white-space: nowrap;
-	width: 76%;
-	line-height: 1.1em;
-	overflow: visible;
-	background: none;
-	border-collapse: collapse;
-	padding-left: 1em;
-	font-size: 95%;
-}
-
-#p-cactions ul {
-	list-style-type: none;
-	list-style-image: none;
-}
-
-#p-cactions li {
-	display: inline;
-	border: 1px solid #aaa;
-	border-bottom: 0;
-	padding: 0 0 1em 0;
-	margin: 0 0.3em 0 0;
-	overflow: visible;
-	background: #fff;
-}
-
-#p-cactions li.selected {
-	border-color: #fabd23;
-	font-weight: bold;
-}
-
-#p-cactions li a {
-	background-color: #fbfbfb;
-	color: #002bb8;
-	border: 0;
-	padding: 0 0.8em 0.3em;
-	position: relative;
-	z-index: 0;
-	margin: 0;
-	text-decoration: none;
-	text-transform: lowercase;
-}
-
-#p-cactions li.selected a {
-	z-index: 3;
-	background-color: #fff;
-}
-
-#p-cactions .new a {
-	color: #ba0000;
-}
-
-#p-cactions li a:hover {
-	z-index: 3;
-	text-decoration: none;
-	background-color: #fff;
-}
 
 #p-cactions h3 {
-	display: none;
-}
-
-#p-cactions li.istalk {
-	margin-right: 0;
-}
-
-#p-cactions li.istalk a {
-	padding-right: 0.5em;
-}
-
-#p-cactions #ca-addsection a {
-	padding-left: 0.4em;
-	padding-right: 0.4em;
-}
-
-/* offsets to distinguish the tab groups */
-li#ca-talk {
-	margin-right: 1.6em;
-}
-
-li#ca-watch,
-li#ca-unwatch,
-li#ca-varlang-0,
-li#ca-print {
-	margin-left: 1.6em;
-}
-
-#p-cactions .pBody {
-	font-size: 1em;
-	background-color: transparent;
-	color: inherit;
-	border-collapse: inherit;
-	border: 0;
-	padding: 0;
-}
-
-#p-lang {
-	position: relative;
-	z-index: 3;
+	.hidden()
 }
 
 /* Override text-transform on languages where capitalization is significant */
@@ -505,36 +265,19 @@ li#ca-print {
 ** footer
 */
 #footer {
-	background-color: #fff;
-	border-top: 1px solid #fabd23;
-	border-bottom: 1px solid #fabd23;
+	background-color: @content-background;
+	border-top: 1px solid @orange-border;
+	border-bottom: 1px solid @orange-border;
 	margin: 0.6em 0 1em 0;
 	overflow: hidden;
 	padding: 0.4em 0 0.3em 0;
 	text-align: center;
 	font-size: 90%;
-}
 
-#footer li {
-	display: inline;
-	margin: 0 1.3em;
-}
-
-#f-poweredbyico,
-#f-copyrightico {
-	margin: 0 8px;
-	position: relative;
-	top: -2px; /* Bump it up just a tad */
-}
-
-#f-poweredbyico {
-	float: right;
-	height: 1%;
-}
-
-#f-copyrightico {
-	float: left;
-	height: 1%;
+	li {
+		display: inline;
+		margin: 0 1.3em;
+	}
 }
 
 #userloginprompt,
@@ -568,8 +311,8 @@ div.patrollink {
 }
 
 .editExternally {
-	border: 1px solid #808080;
-	background-color: #fff;
+	border: 1px solid @content-border;
+	background-color: @content-background;
 	padding: 3px;
 	margin-top: 0.5em;
 	float: left;
@@ -579,7 +322,7 @@ div.patrollink {
 
 .editExternallyHelp {
 	font-style: italic;
-	color: #808080;
+	color: @text-grey;
 }
 
 .toggle {
@@ -599,10 +342,10 @@ input#wpDiff {
 
 /* noarticletext */
 div.noarticletext {
-	border: 1px solid #ccc;
-	background: #fff;
+	border: 1px solid @content-border;
+	background: @content-background;
 	padding: 0.2em 1em;
-	color: #000;
+	color: @text-color;
 }
 
 #powersearch p {
@@ -610,20 +353,19 @@ div.noarticletext {
 }
 
 div.multipageimagenavbox {
-	border: solid 1px #c0c0c0;
+	border: solid 1px @content-border;
 	padding: 4px;
 	margin: 1em;
-	background: #f0f0f0;
-}
+	background: @background;
 
-div.multipageimagenavbox div.thumb {
-	border: 0;
-	margin-left: 2em;
-	margin-right: 2em;
-}
-
-div.multipageimagenavbox hr {
-	margin: 6px;
+	div.thumb {
+		border: 0;
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+	hr {
+		margin: 6px;
+	}
 }
 
 table.multipageimage td {
@@ -658,14 +400,14 @@ div.mw-lag-warn-high {
 }
 
 .MediaTransformError {
-	background-color: #ccc;
+	background-color: @content-border;
 	padding: 0.1em;
-}
 
-.MediaTransformError td {
-	text-align: center;
-	vertical-align: middle;
-	font-size: 90%;
+	td {
+		text-align: center;
+		vertical-align: middle;
+		font-size: 90%;
+	}
 }
 
 /* Sometimes people don't want personal tools to be lowercase! */
