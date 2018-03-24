@@ -44,7 +44,8 @@
 			"+mediawiki.action.view.redirectPage": "resources/skinStyles/mediawiki.action.view.redirectPage.css",
 			"+mediawiki.special.preferences.styles": "resources/skinStyles/mediawiki.special.preferences.styles.less",
 			"+mediawiki.notification": "resources/skinStyles/mediawiki.notification.less",
-			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less"
+			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less",
+			"+ext.cite.styles": "resources/skinStyles/ext.cite.less"
 		}
 	},
 	"AutoloadClasses": {
