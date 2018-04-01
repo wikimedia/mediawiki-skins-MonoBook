@@ -1,60 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   id="svg11764"
-   version="1.1"
-   viewBox="0 0 1.3229166 58.208328"
-   height="58.208328mm"
-   width="1.3229166mm">
-  <defs
-     id="defs11758">
-    <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="0.97013438"
-       x2="263.04874"
-       y1="29.23378"
-       x1="262.80325"
-       id="linearGradient8778"
-       xlink:href="#linearGradient8776"
-       gradientTransform="matrix(1.8750001,0,0,1.8750001,-492.0029,238.79165)" />
-    <linearGradient
-       id="linearGradient8776">
-      <stop
-         id="stop8772"
-         offset="0"
-         style="stop-color:#f9f9f9;stop-opacity:1;" />
-      <stop
-         id="stop8774"
-         offset="1"
-         style="stop-color:#f3f3f3;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <metadata
-     id="metadata11761">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(0,-238.79167)"
-     id="layer1">
-    <rect
-       y="238.79167"
-       x="0"
-       height="58.208328"
-       width="1.3229166"
-       id="rect8238"
-       style="display:inline;opacity:1;fill:url(#linearGradient8778);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.9921875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5" height="220" viewBox="0 0 1.323 58.208">
+    <defs>
+        <linearGradient id="b" x1="262.803" x2="263.049" y1="29.234" y2=".97" gradientTransform="translate(-492.003 238.792) scale(1.875)" gradientUnits="userSpaceOnUse" xlink:href="#a"/>
+        <linearGradient id="a">
+            <stop offset="0" stop-color="#f9f9f9"/>
+            <stop offset="1" stop-color="#f3f3f3"/>
+        </linearGradient>
+    </defs>
+    <path fill="url(#b)" d="M0 238.792h1.323V297H0z" transform="translate(0 -238.792)"/>
 </svg>
