@@ -29,7 +29,7 @@
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
-				"resources/screen-desktop.css": {
+				"resources/screen-desktop.less": {
 					"media": "screen"
 				}
 			}
