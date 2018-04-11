@@ -36,179 +36,92 @@ class MonoBookTemplate extends BaseTemplate {
 	 * outputs a formatted page.
 	 */
 	public function execute() {
-		$this->html( 'headelement' );
-		?><div id="globalWrapper">
-		<div id="column-content">
-			<div id="content" class="mw-body" role="main">
-				<a id="top"></a>
-				<?php
-				if ( $this->data['sitenotice'] ) {
-					?>
-					<div id="siteNotice" class="mw-body-content"><?php
-					$this->html( 'sitenotice' )
-					?></div><?php
-				}
-				?>
+		// Open html, body elements, etc
+		$html = $this->get( 'headelement' );
+		$html .= Html::openElement( 'div', [ 'id' => 'globalWrapper' ] );
 
-				<?php
-				echo $this->getIndicators();
-				// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
-				if ( $this->data['title'] != '' ) {
-				?>
-				<h1 id="firstHeading" class="firstHeading" lang="<?php
-				$this->data['pageLanguage'] =
-					$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
-				$this->text( 'pageLanguage' );
-				?>"><?php $this->html( 'title' ) ?></h1>
-				<?php
-				}
-				?>
+		$html .= Html::openElement( 'div', [ 'id' => 'column-content' ] );
+		$html .= Html::rawElement( 'div', [ 'id' => 'content', 'class' => 'mw-body',  'role' => 'main' ],
+			Html::element( 'a', [ 'id' => 'top' ] ) .
+			$this->getIfExists( 'sitenotice', [
+				'wrapper' => 'div',
+				'parameters' => [ 'id' => 'siteNotice', 'class' => 'mw-body-content' ]
+			] ) .
+			$this->getIndicators() .
+			$this->getIfExists( 'title', [
+				'loose' => true,
+				'wrapper' => 'h1',
+				'parameters' => [
+					'id' => 'firstHeading',
+					'class' => 'firstHeading',
+					'lang' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode()
+				]
+			] ) .
+			Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'mw-body-content' ],
+				Html::rawElement( 'div', [ 'id' => 'siteSub' ], $this->getMsg( 'tagline' )->parse() ) .
+				Html::rawElement(
+					'div',
+					[ 'id' => 'contentSub', 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ],
+					$this->get( 'subtitle' )
+				) .
+				$this->getIfExists( 'undelete', [ 'wrapper' => 'div', [ 'id' => 'contentSub2' ] ] ) .
+				$this->getIfExists( 'newtalk', [ 'wrapper' => 'div', [ 'class' => 'usermessage' ] ] ) .
+				Html::rawElement( 'div', [ 'id' => 'jump-to-nav', 'class' => 'mw-jump' ],
+					$this->getMsg( 'jumpto' )->escaped() .
+					Html::element( 'a', [ 'href' => '#column-one' ],
+						$this->getMsg( 'jumptonavigation' )->text()
+					) .
+					$this->getMsg( 'comma-separator' )->escaped() .
+					Html::element( 'a', [ 'href' => '#searchInput' ],
+						$this->getMsg( 'jumptosearch' )->text()
+					)
+				) .
+				'<!-- start content -->' .
 
-				<div id="bodyContent" class="mw-body-content">
-					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-					<div id="contentSub"<?php
-					$this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' )
-						?></div>
-					<?php if ( $this->data['undelete'] ) { ?>
-						<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-					<?php
-					}
-					?><?php
-					if ( $this->data['newtalk'] ) {
-						?>
-						<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-					<?php
-					}
-					?>
-					<div id="jump-to-nav" class="mw-jump"><?php
-						$this->msg( 'jumpto' )
-						?> <a href="#column-one"><?php
-							$this->msg( 'jumptonavigation' )
-							?></a><?php
-						$this->msg( 'comma-separator' )
-						?><a href="#searchInput"><?php
-							$this->msg( 'jumptosearch' )
-							?></a></div>
+				$this->get( 'bodytext' ) .
+				$this->getIfExists( 'catlinks' ) .
 
-					<!-- start content -->
-					<?php $this->html( 'bodytext' ) ?>
-					<?php
-					if ( $this->data['catlinks'] ) {
-						$this->html( 'catlinks' );
-					}
-					?>
-					<!-- end content -->
-					<?php
-					if ( $this->data['dataAfterContent'] ) {
-						$this->html( 'dataAfterContent' );
-					}
-					?>
-					<div class="visualClear"></div>
-				</div>
-			</div>
-			<?php Hooks::run( 'MonoBookAfterContent' ); ?>
-		</div>
-		<div id="column-one"<?php $this->html( 'userlangattributes' ) ?>>
-			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-			<?php
-				// Print the content actions (cactions) bar
-				echo $this->getBox( 'cactions', $this->data['content_actions'], 'views' );
-			?>
-			<div class="portlet" id="p-personal" role="navigation">
-				<h3><?php $this->msg( 'personaltools' ) ?></h3>
+				'<!-- end content -->' .
+				$this->getIfExists( 'dataAfterContent' ) .
+				$this->getClear()
+			)
+		);
+		$html .= $this->deprecatedHookHack( 'MonoBookAfterContent' );
+		$html .= Html::closeElement( 'div' );
 
-				<div class="pBody">
-					<ul<?php $this->html( 'userlangattributes' ) ?>>
-						<?php
-						$personalTools = $this->getPersonalTools();
-
-						if ( array_key_exists( 'uls', $personalTools ) ) {
-							echo $this->makeListItem( 'uls', $personalTools['uls'] );
-							unset( $personalTools['uls'] );
-						}
-
-						if ( !$this->getSkin()->getUser()->isLoggedIn() &&
-							User::groupHasPermission( '*', 'edit' )
-						) {
-							echo Html::rawElement( 'li', [
-								'id' => 'pt-anonuserpage'
-							], $this->getMsg( 'notloggedin' )->escaped() );
-						}
-
-						foreach ( $personalTools as $key => $item ) { ?>
-							<?php echo $this->makeListItem( $key, $item ); ?>
-
-						<?php
-						}
-						?>
-					</ul>
-				</div>
-			</div>
-			<div class="portlet" id="p-logo" role="banner">
-				<?php
-				echo Html::element( 'a', [
+		$html .= Html::rawElement( 'div',
+			[
+				'id' => 'column-one',
+				'lang' => $this->get( 'userlang' ),
+				'dir' => $this->get( 'dir' )
+			],
+			Html::element( 'h2', [], $this->getMsg( 'navigation-heading' )->text() ) .
+			$this->getBox( 'cactions', $this->data['content_actions'], 'views' ) .
+			$this->getBox( 'personal', $this->getPersonalTools(), 'personaltools' ) .
+			Html::rawElement( 'div', [ 'class' => 'portlet', 'id' => 'p-logo', 'role' => 'banner' ],
+				Html::element( 'a',
+					[
 						'href' => $this->data['nav_urls']['mainpage']['href'],
 						'class' => 'mw-wiki-logo',
 					]
 					+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
-				); ?>
+				)
+			) .
+			$this->getRenderedSidebar()
+		);
+		$html .= '<!-- end of the left (by default at least) column -->';
 
-			</div>
-			<?php
-			echo $this->getRenderedSidebar();
-			?>
-		</div><!-- end of the left (by default at least) column -->
-		<div class="visualClear"></div>
-		<?php
-		$validFooterIcons = $this->getFooterIcons( 'icononly' );
-		// Additional footer links
-		$validFooterLinks = $this->getFooterLinks( 'flat' );
+		$html .= $this->getClear();
+		$html .= $this->getSimpleFooter();
+		$html .= Html::closeElement( 'div' );
 
-		if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) {
-			?>
-			<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
-			<?php
-			$footerEnd = '</div>';
-		} else {
-			$footerEnd = '';
-		}
+		$html .= $this->getTrail();
 
-		foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-			?>
-			<div id="f-<?php echo htmlspecialchars( $blockName ); ?>ico">
-				<?php foreach ( $footerIcons as $icon ) { ?>
-					<?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
+		$html .= Html::closeElement( 'body' );
+		$html .= Html::closeElement( 'html' );
 
-				<?php
-				}
-				?>
-			</div>
-		<?php
-		}
-
-		if ( count( $validFooterLinks ) > 0 ) {
-			?>
-			<ul id="f-list">
-				<?php
-				foreach ( $validFooterLinks as $aLink ) {
-					?>
-					<li id="<?php echo $aLink ?>"><?php $this->html( $aLink ) ?></li>
-				<?php
-				}
-				?>
-			</ul>
-		<?php
-		}
-
-		echo $footerEnd;
-		?>
-
-		</div>
-		<?php
-		$this->printTrail();
-		echo Html::closeElement( 'body' );
-		echo Html::closeElement( 'html' );
-		echo "\n";
+		// The unholy echo
+		echo $html;
 	}
 
 	/**
@@ -312,18 +225,7 @@ class MonoBookTemplate extends BaseTemplate {
 			'SkinTemplateToolboxEnd' => [ &$skin, true ]
 		] ] );
 
-		// HACK: ANOTHER stupid hook
-		$hookContents = '';
-		ob_start();
-		Hooks::run( 'MonoBookAfterToolbox' );
-		$hookContents = ob_get_contents();
-		ob_end_clean();
-		if ( !trim( $hookContents ) ) {
-			$hookContents = '';
-		}
-		// END hack
-
-		$html .= $hookContents;
+		$html .= $this->deprecatedHookHack( 'MonoBookAfterToolbox' );
 
 		return $html;
 	}
@@ -363,6 +265,27 @@ class MonoBookTemplate extends BaseTemplate {
 			$options[$key] = $value;
 		}
 
+		// Do some special stuff for the personal menu
+		if ( $name == 'personal' ) {
+			$prependiture = '';
+
+			// Extension:UniversalLanguageSelector order - T121793
+			if ( array_key_exists( 'uls', $contents ) ) {
+				$prependiture .= $this->makeListItem( 'uls', $contents['uls'] );
+				unset( $contents['uls'] );
+			}
+			if ( !$this->getSkin()->getUser()->isLoggedIn() &&
+				User::groupHasPermission( '*', 'edit' )
+			) {
+				$prependiture .= Html::rawElement(
+					'li',
+					[ 'id' => 'pt-anonuserpage' ],
+					$this->getMsg( 'notloggedin' )->escaped()
+				);
+			}
+			$options['list-prepend'] = $prependiture;
+		}
+
 		return $this->getPortlet( $name, $contents, $msg, $options );
 	}
 
@@ -392,7 +315,9 @@ class MonoBookTemplate extends BaseTemplate {
 			// wrapper for individual list items
 			'text-wrapper' => [ 'tag' => 'span' ],
 			// old toolbox hook support (use: [ 'SkinTemplateToolboxEnd' => [ &$skin, true ] ])
-			'hooks' => ''
+			'hooks' => '',
+			// option to stick arbitrary stuff at the beginning of the ul
+			'list-prepend' => ''
 		];
 		// set options based on input
 		foreach ( $setOptions as $key => $value ) {
@@ -417,28 +342,13 @@ class MonoBookTemplate extends BaseTemplate {
 			$msgString = htmlspecialchars( $msg );
 		}
 
-		// HACK: Compatibility with extensions still using SkinTemplateToolboxEnd or other stupid hooks
-		$hooksContents = '';
-		if ( is_array( $options['hooks'] ) ) {
-			foreach ( $options['hooks'] as $hook => $hookOptions ) {
-				ob_start();
-				Hooks::run( $hook, $hookOptions );
-				$hookContents = ob_get_contents();
-				ob_end_clean();
-				if ( !trim( $hookContents ) ) {
-					$hookContents = '';
-				}
-				$hooksContents .= $hookContents;
-			}
-		}
-		// END hack
-
 		$labelId = Sanitizer::escapeId( "p-$name-label" );
 
 		if ( is_array( $content ) ) {
 			$contentText = Html::openElement( 'ul',
 				[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
 			);
+			$contentText .= $options['list-prepend'];
 			foreach ( $content as $key => $item ) {
 				if ( is_array( $options['text-wrapper'] ) ) {
 					$contentText .= $this->makeListItem(
@@ -453,8 +363,13 @@ class MonoBookTemplate extends BaseTemplate {
 					);
 				}
 			}
-			// Add in hook crap, if any
-			$contentText .= $hooksContents;
+			// Compatibility with extensions still using SkinTemplateToolboxEnd or similar
+			if ( is_array( $options['hooks'] ) ) {
+				foreach ( $options['hooks'] as $hook => $hookOptions ) {
+					$contentText .= $this->deprecatedHookHack( $hook, $hookOptions );
+				}
+			}
+
 			$contentText .= Html::closeElement( 'ul' );
 		} else {
 			$contentText = $content;
@@ -517,5 +432,107 @@ class MonoBookTemplate extends BaseTemplate {
 		}
 
 		return array_merge( $class, $extraClasses );
+	}
+
+	/**
+	 * Wrapper to catch output of old hooks expecting to write directly to page
+	 * We no longer do things that way.
+	 *
+	 * @param string $hook event
+	 * @param array $hookOptions args
+	 *
+	 * @return string html
+	 */
+	protected function deprecatedHookHack( $hook, $hookOptions = [] ) {
+		$hookContents = '';
+		ob_start();
+		Hooks::run( $hook, $hookOptions );
+		$hookContents = ob_get_contents();
+		ob_end_clean();
+		if ( !trim( $hookContents ) ) {
+			$hookContents = '';
+		}
+
+		return $hookContents;
+	}
+
+	/**
+	 * Simple wrapper for random if-statement-wrapped $this->data things
+	 *
+	 * @param string $object name of thing
+	 * @param array $setOptions
+	 *
+	 * @return string html
+	 */
+	protected function getIfExists( $object, $setOptions = [] ) {
+		$options = [
+			'loose' => false,
+			'wrapper' => 'none',
+			'parameters' => []
+		];
+		foreach ( $setOptions as $key => $value ) {
+			$options[$key] = $value;
+		}
+
+		$html = '';
+
+		if ( ( $options['loose'] && $this->data[$object] != '' ) ||
+			( !$options['loose'] && $this->data[$object] ) ) {
+			if ( $options['wrapper'] == 'none' ) {
+				$html .= $this->get( $object );
+			} else {
+				$html .= Html::rawElement(
+					$options['wrapper'],
+					$options['parameters'],
+					$this->get( $object )
+				);
+			}
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Renderer for getFooterIcons and getFooterLinks as a generic footer block
+	 *
+	 * @return string html
+	 */
+	protected function getSimpleFooter() {
+		$validFooterIcons = $this->getFooterIcons( 'icononly' );
+		$validFooterLinks = $this->getFooterLinks( 'flat' );
+
+		$html = '';
+
+		$html .= Html::openElement( 'div', [
+			'id' => 'footer',
+			'role' => 'contentinfo',
+			'lang' => $this->get( 'userlang' ),
+			'dir' => $this->get( 'dir' )
+		] );
+
+		foreach ( $validFooterIcons as $blockName => $footerIcons ) {
+			$html .= Html::openElement( 'div', [
+				'id' => Sanitizer::escapeIdForAttribute( "f-{$blockName}ico" ),
+				'class' => 'footer-icons'
+			] );
+			foreach ( $footerIcons as $icon ) {
+				$html .= $this->getSkin()->makeFooterIcon( $icon );
+			}
+			$html .= Html::closeElement( 'div' );
+		}
+		if ( count( $validFooterLinks ) > 0 ) {
+			$html .= Html::openElement( 'ul', [ 'id' => 'f-list' ] );
+			foreach ( $validFooterLinks as $aLink ) {
+				$html .= Html::rawElement(
+					'li',
+					[ 'id' => Sanitizer::escapeIdForAttribute( $aLink ) ],
+					$this->get( $aLink )
+				);
+			}
+			$html .= Html::closeElement( 'ul' );
+		}
+		$html .= Html::closeElement( 'div' );
+
+		return $html;
 	}
 }
