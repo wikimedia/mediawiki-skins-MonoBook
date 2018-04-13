@@ -342,7 +342,7 @@ class MonoBookTemplate extends BaseTemplate {
 			$msgString = htmlspecialchars( $msg );
 		}
 
-		$labelId = Sanitizer::escapeId( "p-$name-label" );
+		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
 
 		if ( is_array( $content ) ) {
 			$contentText = Html::openElement( 'ul',
@@ -379,7 +379,7 @@ class MonoBookTemplate extends BaseTemplate {
 		$divOptions = [
 			'role' => $options['role'],
 			'class' => $this->mergeClasses( $options['class'], $options['extra-classes'] ),
-			'id' => Sanitizer::escapeId( $options['id'] ),
+			'id' => Sanitizer::escapeIdForAttribute( $options['id'] ),
 			'title' => Linker::titleAttrib( $options['id'] )
 		];
 		if ( $options['role'] !== 'search' ) {
