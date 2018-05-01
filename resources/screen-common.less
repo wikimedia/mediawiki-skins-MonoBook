@@ -211,21 +211,8 @@ table.rimage {
 /*
 ** the personal toolbar
 */
-
-#p-personal h3 {
-	.hidden();
-
-	li {
-		color: #2f6fab;
-
-		a {
-			color: #005896;
-		}
-
-		&.active {
-			font-weight: bold;
-		}
-	}
+#p-personal li.active {
+	font-weight: bold;
 }
 
 /* Don't lowercase username */
@@ -236,14 +223,6 @@ li#pt-userpage {
 /* "Not logged in" text in gray */
 li#pt-anonuserpage {
 	color: @text-grey;
-}
-
-/*
-** the page-related actions- page/talk, edit etc
-*/
-
-#p-cactions h3 {
-	.hidden()
 }
 
 /* Override text-transform on languages where capitalization is significant */
@@ -355,6 +334,7 @@ div.multipageimagenavbox {
 		margin-left: 2em;
 		margin-right: 2em;
 	}
+
 	hr {
 		margin: 6px;
 	}
