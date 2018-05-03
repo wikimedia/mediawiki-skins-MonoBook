@@ -38,6 +38,20 @@
 					"media": "screen and (max-width: 850px)"
 				}
 			}
+		},
+		"skins.monobook.mobile": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"resources/mobile.js"
+			],
+			"styles": {
+				"resources/mobile.js.less": {
+					"media": "screen and (max-width: 850px)"
+				}
+			},
+			"dependencies": [
+				"mediawiki.util"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -49,7 +63,8 @@
 			"+mediawiki.action.view.redirectPage": "resources/skinStyles/mediawiki.action.view.redirectPage.css",
 			"+mediawiki.special.preferences.styles": "resources/skinStyles/mediawiki.special.preferences.styles.less",
 			"+mediawiki.notification": "resources/skinStyles/mediawiki.notification.less",
-			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less"
+			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less",
+			"+ext.uls.interface": "resources/skinStyles/ext.uls.interface.less"
 		}
 	},
 	"AutoloadClasses": {

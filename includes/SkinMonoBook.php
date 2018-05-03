@@ -50,6 +50,9 @@ class SkinMonoBook extends SkinTemplate {
 			'mediawiki.skinning.content.externallinks',
 			'skins.monobook.styles'
 		] );
+		$out->addModules( [
+			'skins.monobook.mobile'
+		] );
 
 		// TODO: Migrate all of these (get RL support for conditional IE)
 		// Force desktop styles in IE 8-; no support for @media widths
