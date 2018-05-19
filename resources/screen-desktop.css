@@ -46,12 +46,31 @@ div#column-one {
 
 .portlet h3 {
 	padding: 0 1em 0 0.5em;
+	text-transform: lowercase;
+	font-weight: normal;
 }
 
 .pBody {
 	background-color: #fff;
 	border: 1px solid #aaa;
 	padding: 0 0.8em 0.3em 0.5em;
+}
+
+/* Don't lowercase username */
+li#pt-userpage {
+	text-transform: none;
+}
+
+/* Override text-transform on languages where capitalization is significant */
+.capitalize-all-nouns .portlet h3,
+.capitalize-all-nouns #p-personal ul,
+.capitalize-all-nouns #p-cactions ul li a {
+	text-transform: none;
+}
+
+/* Sometimes people don't want personal tools to be lowercase! */
+.no-text-transform {
+	text-transform: none;
 }
 
 /*
@@ -308,7 +327,10 @@ li#ca-print {
 ** mobile toggles; not used here
 */
 #p-cactions-mobile,
-.menu-toggle {
+#sidebar-mobilejs,
+.mobile-close-button,
+.menu-toggle,
+.menus-cover {
 	display: none;
 }
 
