@@ -54,11 +54,37 @@ class SkinMonoBook extends SkinTemplate {
 			'skins.monobook.mobile'
 		] );
 
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
+			$out->addModules( [ 'skins.monobook.mobile.echohack' ] );
+		}
 		// TODO: Migrate all of these (get RL support for conditional IE)
 		// Force desktop styles in IE 8-; no support for @media widths
 		$out->addStyle( $this->stylename . '/resources/screen-desktop.css', 'screen', 'lt IE 9' );
 		// Miscellanious fixes
 		$out->addStyle( $this->stylename . '/resources/IE60Fixes.css', 'screen', 'IE 6' );
 		$out->addStyle( $this->stylename . '/resources/IE70Fixes.css', 'screen', 'IE 7' );
+	}
+
+	/**
+	 * Handler for ResourceLoaderRegisterModules hook
+	 *
+	 * @param ResourceLoader $resourceLoader
+	 */
+	static function registerEchoHack( ResourceLoader $resourceLoader ) {
+		// Check if echo is loaded, and if so duplicate echo load check for hacks
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+			$resourceLoader->register( 'skins.monobook.mobile.echohack', [
+				'localBasePath' => __DIR__ . '/..',
+				'remoteSkinPath' => 'MonoBook/resources',
+
+				'targets' => [ 'desktop', 'mobile' ],
+				'scripts' => [ 'resources/mobile-echo.js' ],
+				'styles' => [ 'resources/mobile-echo.less' => [
+					'media' => 'screen and (max-width: 850px)'
+				] ],
+				'dependencies' => [ 'ext.echo.badgeicons', 'mediawiki.util' ],
+				'messages' => [ 'monobook-notifications-link', 'monobook-notifications-link-none' ]
+			] );
+		}
 	}
 }

@@ -326,6 +326,8 @@ li#ca-print {
 /*
 ** mobile toggles; not used here
 */
+#p-personal #pt-notifications,
+#echo-hack-badges,
 #p-cactions-mobile,
 #sidebar-mobilejs,
 .mobile-close-button,

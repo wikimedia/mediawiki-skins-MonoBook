@@ -88,5 +88,4 @@
 		$( window ).resize( setupMonoBookMobile );
 		setupMonoBookMobile();
 	} );
-
 }( mediaWiki, jQuery ) );

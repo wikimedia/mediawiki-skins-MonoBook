@@ -9,5 +9,7 @@
 	"monobook-jumptotop": "back to top",
 	"monobook-jumptopersonal": "user tools",
 	"monobook-more-actions": "More",
-	"monobook-cactions-label": "Page actions"
+	"monobook-cactions-label": "Page actions",
+	"monobook-notifications-link": "Notifications ($1)",
+	"monobook-notifications-link-none": "Notifications"
 }

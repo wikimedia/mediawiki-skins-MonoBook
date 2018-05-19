@@ -19,6 +19,9 @@
 	"SkinOOUIThemes": {
 		"monobook": "Apex"
 	},
+	"Hooks": {
+		"ResourceLoaderRegisterModules": "SkinMonoBook::registerEchoHack"
+	},
 	"MessagesDirs": {
 		"MonoBook": [
 			"i18n"
