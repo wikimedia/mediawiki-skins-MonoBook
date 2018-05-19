@@ -1,5 +1,9 @@
 /*
 ** Desktop-specific styles for MonoBook
+**
+** Must remain simple css (not less) for IE8- support; ResourceLoader does not support
+** conditional IE loading, and so we cannot depend on it for anything here as this file
+** is also loaded directly, bypassing ResourceLoader, in those browsers.
 */
 
 div#column-content {
@@ -110,7 +114,6 @@ input.searchButton {
 	left: 0;
 	top: 0;
 	z-index: 3;
-
 	width: 100%;
 	white-space: nowrap;
 	padding: 0;
@@ -119,6 +122,11 @@ input.searchButton {
 	background: none;
 	overflow: visible;
 	line-height: 1.2em;
+}
+
+#p-personal h3 {
+	position: absolute;
+	top: -9999px;
 }
 
 #p-personal .portlet,
@@ -154,6 +162,7 @@ input.searchButton {
 	z-index: 0;
 	border: 0;
 	padding: 0;
+	color: #2f6fab;
 	display: inline;
 	margin-left: 1em;
 	line-height: 1.2em;
@@ -161,6 +170,7 @@ input.searchButton {
 }
 
 #p-personal li a {
+	color: #005896;
 	text-decoration: none;
 	padding-bottom: 0.2em;
 }
@@ -177,12 +187,17 @@ input.searchButton {
 /* The icon in front of the username / login link */
 li#pt-userpage,
 li#pt-anonuserpage {
-	background-image: url( images/user.gif );
+	background-image: url( images/icon-user.gif );
 	/* @embed */
-	background-image: linear-gradient( transparent, transparent ), url( images/user.svg );
+	background-image: linear-gradient( transparent, transparent ), url( images/icon-user.svg );
 	background-position: top left;
 	background-repeat: no-repeat;
 	padding-left: 20px;
+}
+
+#p-lang {
+	position: relative;
+	z-index: 3;
 }
 
 /*
@@ -203,6 +218,11 @@ li#pt-anonuserpage {
 	font-size: 95%;
 }
 
+#p-cactions h3 {
+	position: absolute;
+	top: -9999px;
+}
+
 #p-cactions ul {
 	list-style-type: none;
 	list-style-image: none;
@@ -212,8 +232,8 @@ li#pt-anonuserpage {
 	display: inline;
 	border: 1px solid #aaa;
 	border-bottom: 0;
+	margin: 0 0.5em 0 0;
 	padding: 0 0 1em 0;
-	margin: 0 0.3em 0 0;
 	overflow: visible;
 	background: #fff;
 }
@@ -221,6 +241,11 @@ li#pt-anonuserpage {
 #p-cactions li.selected {
 	border-color: #fabd23;
 	font-weight: bold;
+}
+
+#p-cactions li.selected a {
+	z-index: 3;
+	background-color: #fff;
 }
 
 #p-cactions li a {
@@ -233,15 +258,6 @@ li#pt-anonuserpage {
 	margin: 0;
 	text-decoration: none;
 	text-transform: lowercase;
-}
-
-#p-cactions li.selected a {
-	z-index: 3;
-	background-color: #fff;
-}
-
-#p-cactions .new a {
-	color: #ba0000;
 }
 
 #p-cactions li a:hover {
@@ -258,9 +274,22 @@ li#pt-anonuserpage {
 	padding-right: 0.5em;
 }
 
+#p-cactions .new a {
+	color: #c20;
+}
+
 #p-cactions #ca-addsection a {
 	padding-left: 0.4em;
 	padding-right: 0.4em;
+}
+
+#p-cactions .pBody {
+	font-size: 1em;
+	background-color: transparent;
+	color: inherit;
+	border-collapse: inherit;
+	border: 0;
+	padding: 0;
 }
 
 /* offsets to distinguish the tab groups */
@@ -275,18 +304,12 @@ li#ca-print {
 	margin-left: 1.6em;
 }
 
-#p-cactions .pBody {
-	font-size: 1em;
-	background-color: transparent;
-	color: inherit;
-	border-collapse: inherit;
-	border: 0;
-	padding: 0;
-}
-
-#p-lang {
-	position: relative;
-	z-index: 3;
+/*
+** mobile toggles; not used here
+*/
+#p-cactions-mobile,
+.menu-toggle {
+	display: none;
 }
 
 /*

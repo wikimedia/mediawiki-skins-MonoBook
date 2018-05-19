@@ -40,13 +40,21 @@ class SkinMonoBook extends SkinTemplate {
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
 
+		$out->addMeta( 'viewport',
+			'width=device-width, initial-scale=1.0, ' .
+			'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
+		);
+
 		$out->addModuleStyles( [
 			'mediawiki.skinning.interface',
 			'mediawiki.skinning.content.externallinks',
 			'skins.monobook.styles'
 		] );
 
-		// TODO: Migrate all of these
+		// TODO: Migrate all of these (get RL support for conditional IE)
+		// Force desktop styles in IE 8-; no support for @media widths
+		$out->addStyle( $this->stylename . '/resources/screen-desktop.css', 'screen', 'lt IE 9' );
+		// Miscellanious fixes
 		$out->addStyle( $this->stylename . '/resources/IE60Fixes.css', 'screen', 'IE 6' );
 		$out->addStyle( $this->stylename . '/resources/IE70Fixes.css', 'screen', 'IE 7' );
 	}

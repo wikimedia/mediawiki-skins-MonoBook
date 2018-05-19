@@ -2,6 +2,7 @@
 	"name": "MonoBook",
 	"author": [
 		"Gabriel Wicke",
+		"Isarra Yos",
 		"..."
 	],
 	"url": "https://www.mediawiki.org/wiki/Skin:MonoBook",
@@ -10,7 +11,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.25.0"
+		"MediaWiki": ">= 1.29.0"
 	},
 	"ValidSkinNames": {
 		"monobook": "MonoBook"
@@ -25,12 +26,16 @@
 	},
 	"ResourceModules": {
 		"skins.monobook.styles": {
+			"targets": [ "desktop", "mobile" ],
 			"styles": {
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
 				"resources/screen-desktop.css": {
-					"media": "screen"
+					"media": "screen and (min-width: 851px)"
+				},
+				"resources/screen-mobile.less": {
+					"media": "screen and (max-width: 850px)"
 				}
 			}
 		}

@@ -10,5 +10,9 @@
 	"skinname-monobook": "{{name}}",
 	"monobook-desc": "{{desc|what=skin|name=MonoBook|url=https://www.mediawiki.org/wiki/Skin:MonoBook}}",
 	"monobook.css": "{{optional}}\nCSS applied to users using MonoBook skin.",
-	"monobook.js": "{{optional}}\nJS for users using MonoBook skin."
+	"monobook.js": "{{optional}}\nJS for users using MonoBook skin.",
+	"monobook-jumptotop": "Label for mobile link icon to jump to top of page",
+	"monobook-jumptopersonal": "Label for mobile link icon to jump to user tools",
+	"monobook-more-actions": "Label for the less-important or rarer actions that are hidden from the usual tabs on mobile interfaces (like moving the page, or for sysops deleting or protecting the page). {{Identical|More}}",
+	"monobook-cactions-label": "Header for the content actions menu (tabs on the top of the page)"
 }
