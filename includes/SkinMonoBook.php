@@ -79,7 +79,7 @@ class SkinMonoBook extends SkinTemplate {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			$resourceLoader->register( 'skins.monobook.mobile.echohack', [
 				'localBasePath' => __DIR__ . '/..',
-				'remoteSkinPath' => 'MonoBook/resources',
+				'remoteSkinPath' => 'MonoBook',
 
 				'targets' => [ 'desktop', 'mobile' ],
 				'scripts' => [ 'resources/mobile-echo.js' ],
@@ -94,7 +94,7 @@ class SkinMonoBook extends SkinTemplate {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
 			$resourceLoader->register( 'skins.monobook.mobile.uls', [
 				'localBasePath' => __DIR__ . '/..',
-				'remoteSkinPath' => 'MonoBook/resources',
+				'remoteSkinPath' => 'MonoBook',
 
 				'targets' => [ 'desktop', 'mobile' ],
 				'scripts' => [ 'resources/mobile-uls.js' ],
