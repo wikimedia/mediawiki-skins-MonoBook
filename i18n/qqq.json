@@ -4,7 +4,8 @@
 			"Meno25",
 			"Umherirrender",
 			"Matma Rex",
-			"Raymond"
+			"Raymond",
+			"Robby"
 		]
 	},
 	"skinname-monobook": "{{name}}",
@@ -16,5 +17,5 @@
 	"monobook-more-actions": "Label for the less-important or rarer actions that are hidden from the usual tabs on mobile interfaces (like moving the page, or for sysops deleting or protecting the page). {{Identical|More}}",
 	"monobook-cactions-label": "Header for the content actions menu (tabs on the top of the page)",
 	"monobook-notifications-link": "Label for Extension:Notifications link in mobile personal toolbar\n\nParameters:\n* $1 - number of current alerts/notifications",
-	"monobook-notifications-link-none": "Label for Extension:Notifications link in mobile personal toolbar when no notifications present"
+	"monobook-notifications-link-none": "Label for Extension:Notifications link in mobile personal toolbar when no notifications present\n{{Identical|Notification}}"
 }

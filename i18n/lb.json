@@ -7,5 +7,9 @@
 	"skinname-monobook": "MonoBook",
 	"monobook-desc": "De klassesche Look vu MediaWiki zanter 2004, benannt no der Schwaarzwäissfoto vun engem Buch am Hannergrond vun der Säit",
 	"monobook.css": "/* Dës CSS huet nëmmen Afloss op de Skin ''Monobook''  */",
-	"monobook.js": "/* All JavaScript hei gëtt gelueden esoubal ee Benotzer d'Ausgesinn MonoBook benotzt */"
+	"monobook.js": "/* All JavaScript hei gëtt gelueden esoubal ee Benotzer d'Ausgesinn MonoBook benotzt */",
+	"monobook-more-actions": "Méi",
+	"monobook-cactions-label": "Säitenaktiounen",
+	"monobook-notifications-link": "Notifikatiounen ($1)",
+	"monobook-notifications-link-none": "Notifikatiounen"
 }
