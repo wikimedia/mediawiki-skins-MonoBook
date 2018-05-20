@@ -39,8 +39,9 @@
 						'pt-notifications',
 						$( '#pt-notifications-notice' ).attr( 'tooltip' ),
 						null,
-						'#pt-userpage'
+						'#pt-preferences'
 					);
+
 					$( '#p-personal-toggle' ).append( $( '<ul>' ).attr( 'id', 'echo-hack-badges' ) );
 
 					echoHacked = true;

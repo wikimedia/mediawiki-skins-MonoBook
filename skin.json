@@ -20,7 +20,7 @@
 		"monobook": "Apex"
 	},
 	"Hooks": {
-		"ResourceLoaderRegisterModules": "SkinMonoBook::registerEchoHack"
+		"ResourceLoaderRegisterModules": "SkinMonoBook::registerMobileExtensionStyles"
 	},
 	"MessagesDirs": {
 		"MonoBook": [

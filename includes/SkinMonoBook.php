@@ -57,6 +57,10 @@ class SkinMonoBook extends SkinTemplate {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
 			$out->addModules( [ 'skins.monobook.mobile.echohack' ] );
 		}
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
+			$out->addModules( [ 'skins.monobook.mobile.uls' ] );
+		}
+
 		// TODO: Migrate all of these (get RL support for conditional IE)
 		// Force desktop styles in IE 8-; no support for @media widths
 		$out->addStyle( $this->stylename . '/resources/screen-desktop.css', 'screen', 'lt IE 9' );
@@ -67,11 +71,11 @@ class SkinMonoBook extends SkinTemplate {
 
 	/**
 	 * Handler for ResourceLoaderRegisterModules hook
+	 * Check if extensions are loaded
 	 *
 	 * @param ResourceLoader $resourceLoader
 	 */
-	static function registerEchoHack( ResourceLoader $resourceLoader ) {
-		// Check if echo is loaded, and if so duplicate echo load check for hacks
+	static function registerMobileExtensionStyles( ResourceLoader $resourceLoader ) {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			$resourceLoader->register( 'skins.monobook.mobile.echohack', [
 				'localBasePath' => __DIR__ . '/..',
@@ -84,6 +88,17 @@ class SkinMonoBook extends SkinTemplate {
 				] ],
 				'dependencies' => [ 'ext.echo.badgeicons', 'mediawiki.util' ],
 				'messages' => [ 'monobook-notifications-link', 'monobook-notifications-link-none' ]
+			] );
+		}
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
+			$resourceLoader->register( 'skins.monobook.mobile.uls', [
+				'localBasePath' => __DIR__ . '/..',
+				'remoteSkinPath' => 'MonoBook/resources',
+
+				'targets' => [ 'desktop', 'mobile' ],
+				'scripts' => [ 'resources/mobile-uls.js' ],
+				'dependencies' => [ 'ext.uls.interface' ],
 			] );
 		}
 	}
