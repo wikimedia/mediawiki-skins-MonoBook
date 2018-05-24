@@ -12,6 +12,8 @@
 	"monobook.js": "/* Das folgende JavaScript wird für Benutzer der Benutzeroberfläche MonoBook geladen. */",
 	"monobook-jumptotop": "Zurück nach oben",
 	"monobook-jumptopersonal": "Benutzerwerkzeuge",
+	"monobook-jumptonavigation": "Zur Navigation springen",
+	"monobook-jumptosearch": "Zur Suche springen",
 	"monobook-more-actions": "Mehr",
 	"monobook-cactions-label": "Seitenaktionen",
 	"monobook-notifications-link": "Benachrichtigungen ($1)",

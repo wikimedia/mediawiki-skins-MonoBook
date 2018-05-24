@@ -11,6 +11,8 @@
 	"monobook.js": "/* Οποιοσδήποτε κώδικας JavaScript εδώ θα φορτωθεί για χρήστες που χρησιμοποιούν το MonoBook skin */",
 	"monobook-jumptotop": "πίσω στην κορυφή",
 	"monobook-jumptopersonal": "εργαλεία χρήστη",
+	"monobook-jumptonavigation": "Πήδηση στην πλοήγηση",
+	"monobook-jumptosearch": "Πήδηση στην αναζήτηση",
 	"monobook-more-actions": "Περισσότερα",
 	"monobook-cactions-label": "Ενέργειες σελίδας",
 	"monobook-notifications-link": "Ειδοποιήσεις ($1)",

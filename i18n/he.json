@@ -12,6 +12,8 @@
 	"monobook.js": "/* כל הסקריפטים הנכתבים כאן ייטענו עבור מי שמשתמש בעיצוב \"מונובוק\" בלבד */",
 	"monobook-jumptotop": "חזרה למעלה",
 	"monobook-jumptopersonal": "כלי משתמש",
+	"monobook-jumptonavigation": "קפיצה לניווט",
+	"monobook-jumptosearch": "קפיצה לחיפוש",
 	"monobook-more-actions": "עוד",
 	"monobook-cactions-label": "פעולות בדף",
 	"monobook-notifications-link": "הודעות ($1)",

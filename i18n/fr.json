@@ -13,6 +13,8 @@
 	"monobook.js": "/* Tout JavaScript ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MonoBook uniquement. */",
 	"monobook-jumptotop": "retour au début",
 	"monobook-jumptopersonal": "outils utilisateur",
+	"monobook-jumptonavigation": "Aller à la navigation",
+	"monobook-jumptosearch": "Aller à la recherche",
 	"monobook-more-actions": "Plus",
 	"monobook-cactions-label": "Actions des pages",
 	"monobook-notifications-link": "Notifications ($1)",
