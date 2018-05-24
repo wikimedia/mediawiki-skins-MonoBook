@@ -66,15 +66,12 @@ class MonoBookTemplate extends BaseTemplate {
 				) .
 				$this->getIfExists( 'undelete', [ 'wrapper' => 'div', [ 'id' => 'contentSub2' ] ] ) .
 				$this->getIfExists( 'newtalk', [ 'wrapper' => 'div', [ 'class' => 'usermessage' ] ] ) .
-				Html::rawElement( 'div', [ 'id' => 'jump-to-nav', 'class' => 'mw-jump' ],
-					$this->getMsg( 'jumpto' )->escaped() .
-					Html::element( 'a', [ 'href' => '#column-one' ],
-						$this->getMsg( 'jumptonavigation' )->text()
-					) .
-					$this->getMsg( 'comma-separator' )->escaped() .
-					Html::element( 'a', [ 'href' => '#searchInput' ],
-						$this->getMsg( 'jumptosearch' )->text()
-					)
+				Html::element( 'div', [ 'id' => 'jump-to-nav' ] ) .
+				Html::element( 'a', [ 'href' => '#column-one', 'class' => 'mw-jump-link' ],
+					$this->getMsg( 'monobook-jumptonavigation' )->text()
+				) .
+				Html::element( 'a', [ 'href' => '#searchInput', 'class' => 'mw-jump-link' ],
+					$this->getMsg( 'monobook-jumptosearch' )->text()
 				) .
 				'<!-- start content -->' .
 

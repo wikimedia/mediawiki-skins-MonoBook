@@ -8,6 +8,8 @@
 	"monobook.js": "/* Any JavaScript here will be loaded for users using the MonoBook skin */",
 	"monobook-jumptotop": "back to top",
 	"monobook-jumptopersonal": "user tools",
+	"monobook-jumptonavigation": "Jump to navigation",
+	"monobook-jumptosearch": "Jump to search",
 	"monobook-more-actions": "More",
 	"monobook-cactions-label": "Page actions",
 	"monobook-notifications-link": "Notifications ($1)",
