@@ -13,6 +13,8 @@
 	"monobook.js": "/* JavaScript här kommer att laddas för dem som använder utseendet MonoBook */",
 	"monobook-jumptotop": "tillbaka till början",
 	"monobook-jumptopersonal": "användarverktyg",
+	"monobook-jumptonavigation": "Hoppa till navigering",
+	"monobook-jumptosearch": "Hoppa till sök",
 	"monobook-more-actions": "Fler",
 	"monobook-cactions-label": "Sidåtgärder",
 	"monobook-notifications-link": "Aviseringar ($1)",

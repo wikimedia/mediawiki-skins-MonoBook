@@ -4,7 +4,8 @@
 			"Sanbec",
 			"Vivaelcelta",
 			"Fitoschido",
-			"Macofe"
+			"Macofe",
+			"Adjen"
 		]
 	},
 	"skinname-monobook": "MonoBook",
@@ -13,6 +14,8 @@
 	"monobook.js": "/* El código JavaScript que se ponga aquí será cargado por los usuarios de la apariencia MonoBook */",
 	"monobook-jumptotop": "volver al principio",
 	"monobook-jumptopersonal": "herramientas de usuario",
+	"monobook-jumptonavigation": "Ir a navegacíon",
+	"monobook-jumptosearch": "Ir a busqueda",
 	"monobook-more-actions": "Más",
 	"monobook-cactions-label": "Acciones de página",
 	"monobook-notifications-link": "Notificaciones ($1)",

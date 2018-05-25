@@ -10,6 +10,8 @@
 	"monobook.js": "/* Тука поставениот JavaScript  ќе им се вчитува на корисниците што го користат рувото „Монобук“ */",
 	"monobook-jumptotop": "најгоре",
 	"monobook-jumptopersonal": "кориснички алатки",
+	"monobook-jumptonavigation": "Прејди на прегледникот",
+	"monobook-jumptosearch": "Прејди на пребарувањето",
 	"monobook-more-actions": "Повеќе",
 	"monobook-cactions-label": "Дејства врз страници",
 	"monobook-notifications-link": "Известувања ($1)",
