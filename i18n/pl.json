@@ -3,7 +3,8 @@
 		"authors": [
 			"Sp5uhe",
 			"Matma Rex",
-			"Chrumps"
+			"Chrumps",
+			"Railfail536"
 		]
 	},
 	"skinname-monobook": "Książka",
@@ -12,6 +13,8 @@
 	"monobook.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Książka */",
 	"monobook-jumptotop": "powrót na górę",
 	"monobook-jumptopersonal": "narzędzia użytkownika",
+	"monobook-jumptonavigation": "Przejdź do nawigacji",
+	"monobook-jumptosearch": "Przejdź do wyszukiwania",
 	"monobook-more-actions": "Więcej",
 	"monobook-cactions-label": "Działania na stronie",
 	"monobook-notifications-link": "Powiadomienia ($1)",
