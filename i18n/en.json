@@ -13,5 +13,6 @@
 	"monobook-more-actions": "More",
 	"monobook-cactions-label": "Page actions",
 	"monobook-notifications-link": "Notifications ($1)",
-	"monobook-notifications-link-none": "Notifications"
+	"monobook-notifications-link-none": "Notifications",
+	"monobook-responsive-label": "Enable responsive MonoBook design"
 }

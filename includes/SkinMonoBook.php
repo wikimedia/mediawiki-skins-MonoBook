@@ -40,26 +40,31 @@ class SkinMonoBook extends SkinTemplate {
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
 
-		$out->addMeta( 'viewport',
-			'width=device-width, initial-scale=1.0, ' .
-			'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
-		);
+		if ( $out->getUser()->getOption( 'monobook-responsive' ) ) {
+			$out->addMeta( 'viewport',
+				'width=device-width, initial-scale=1.0, ' .
+				'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
+			);
+			$styleModule = 'skins.monobook.responsive';
+			$out->addModules( [
+				'skins.monobook.mobile'
+			] );
+
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
+				$out->addModules( [ 'skins.monobook.mobile.echohack' ] );
+			}
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
+				$out->addModules( [ 'skins.monobook.mobile.uls' ] );
+			}
+		} else {
+			$styleModule = 'skins.monobook.styles';
+		}
 
 		$out->addModuleStyles( [
 			'mediawiki.skinning.interface',
 			'mediawiki.skinning.content.externallinks',
-			'skins.monobook.styles'
+			$styleModule
 		] );
-		$out->addModules( [
-			'skins.monobook.mobile'
-		] );
-
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
-			$out->addModules( [ 'skins.monobook.mobile.echohack' ] );
-		}
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
-			$out->addModules( [ 'skins.monobook.mobile.uls' ] );
-		}
 
 		// TODO: Migrate all of these (get RL support for conditional IE)
 		// Force desktop styles in IE 8-; no support for @media widths
@@ -67,6 +72,20 @@ class SkinMonoBook extends SkinTemplate {
 		// Miscellanious fixes
 		$out->addStyle( $this->stylename . '/resources/IE60Fixes.css', 'screen', 'IE 6' );
 		$out->addStyle( $this->stylename . '/resources/IE70Fixes.css', 'screen', 'IE 7' );
+	}
+
+	/**
+	 * @param User $user
+	 * @param array &$preferences
+	 */
+	public static function onGetPreferences( User $user, array &$preferences ) {
+		if ( $user->getOption( 'skin' ) === 'monobook' ) {
+			$preferences['monobook-responsive'] = [
+				'type' => 'toggle',
+				'label-message' => 'monobook-responsive-label',
+				'section' => 'rendering/skin',
+			];
+		}
 	}
 
 	/**

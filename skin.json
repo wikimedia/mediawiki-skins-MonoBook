@@ -19,7 +19,11 @@
 	"SkinOOUIThemes": {
 		"monobook": "Apex"
 	},
+	"DefaultUserOptions": {
+		"monobook-responsive": true
+	},
 	"Hooks": {
+		"GetPreferences": "SkinMonoBook::onGetPreferences",
 		"ResourceLoaderRegisterModules": "SkinMonoBook::registerMobileExtensionStyles"
 	},
 	"MessagesDirs": {
@@ -29,6 +33,16 @@
 	},
 	"ResourceModules": {
 		"skins.monobook.styles": {
+			"styles": {
+				"resources/screen-common.less": {
+					"media": "screen"
+				},
+				"resources/screen-desktop.css": {
+					"media": "screen"
+				}
+			}
+		},
+		"skins.monobook.responsive": {
 			"targets": [ "desktop", "mobile" ],
 			"styles": {
 				"resources/screen-common.less": {
