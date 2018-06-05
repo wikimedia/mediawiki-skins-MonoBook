@@ -84,7 +84,7 @@ class SkinMonoBook extends SkinTemplate {
 				'targets' => [ 'desktop', 'mobile' ],
 				'scripts' => [ 'resources/mobile-echo.js' ],
 				'styles' => [ 'resources/mobile-echo.less' => [
-					'media' => 'screen and (max-width: 850px)'
+					'media' => 'screen and (max-width: 550px)'
 				] ],
 				'dependencies' => [ 'ext.echo.badgeicons', 'mediawiki.util' ],
 				'messages' => [ 'monobook-notifications-link', 'monobook-notifications-link-none' ]

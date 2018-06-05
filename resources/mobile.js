@@ -1,6 +1,6 @@
 ( function ( mw, $ ) {
 	$( function () {
-		var mobileCutoffWidth = 850,
+		var mobileCutoffWidth = 550,
 			// Track if DOM has been set up for mobile fanciness yet
 			monobookMobileElements = false,
 			// Toggles and targets for popouts
