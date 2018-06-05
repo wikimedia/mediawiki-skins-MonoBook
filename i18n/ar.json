@@ -3,7 +3,8 @@
 		"authors": [
 			"Meno25",
 			"Khaled",
-			"Sonic N800"
+			"Sonic N800",
+			"ديفيد"
 		]
 	},
 	"skinname-monobook": "مونوبوك",
@@ -12,6 +13,10 @@
 	"monobook.js": "/* أي جافاسكريبت هنا سيتم تحميلها للمستخدمين الذين يستعملون واجهة مونوبوك */",
 	"monobook-jumptotop": "ارجع إلى الأعلى",
 	"monobook-jumptopersonal": "أدوات المستخدم",
+	"monobook-jumptonavigation": "اذهب إلى التنقل",
+	"monobook-jumptosearch": "اذهب الى البحث",
 	"monobook-more-actions": "مزيد",
-	"monobook-cactions-label": "أفعال الصفحة"
+	"monobook-cactions-label": "أفعال الصفحة",
+	"monobook-notifications-link": "الإشعارات ($1)",
+	"monobook-notifications-link-none": "الإشعارات"
 }
