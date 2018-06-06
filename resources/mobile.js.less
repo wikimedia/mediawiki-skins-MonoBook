@@ -1,15 +1,19 @@
 @import 'variables.less';
 
-// remove duplicates we're not using here; this is cleaner and/or easier than in js
+// remove duplicates we're not using here
 #sidebar .generated-sidebar,
-*[ id^='ca-nstab-' ],
-#ca-talk,
-#ca-edit,
-#t-contributions,
 #p-search-mobilejs,
 #p-tb-mobilejs,
-#p-lang-mobilejs {
+#p-lang-mobilejs,
+#t-contributions {
 	display: none;
+}
+
+// don't actually remove these, just hide, as their duplicates don't have access keys on them
+*[ id^='ca-nstab-' ],
+#ca-talk,
+#ca-edit {
+	.hidden();
 }
 
 // popouts
@@ -18,18 +22,18 @@
 #p-tb,
 #p-lang,
 #sidebar-mobilejs {
-	display: none;
+	// keep present for screen readers
+	.hidden();
 
 	&.mobile-menu-active {
-		display: block;
+		top: 2em;
+		left: 0;
 	}
 }
 
 .mobile-menu-active {
 	position: absolute;
 	z-index: 10000;
-	top: 2em;
-	left: 0;
 	background: @content-background;
 	border: solid 1px @orange-border;
 	border-left: 0;
