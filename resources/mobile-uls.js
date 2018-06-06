@@ -1,5 +1,5 @@
 $( function () {
-	var mobileCutoffWidth = 850,
+	var mobileCutoffWidth = 550,
 		ULSTrigger = $( '#pt-uls' ),
 		ULSMoved = false;
 

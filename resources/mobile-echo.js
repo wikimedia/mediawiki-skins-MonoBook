@@ -1,6 +1,6 @@
 ( function ( mw, $ ) {
 	$( function () {
-		var mobileCutoffWidth = 850,
+		var mobileCutoffWidth = 550,
 			notificationIcons = $( '#pt-notifications-alert, #pt-notifications-notice' ),
 			echoHacked = false,
 			echoHackActive = false,
