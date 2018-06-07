@@ -17,5 +17,6 @@
 	"monobook-more-actions": "עוד",
 	"monobook-cactions-label": "פעולות בדף",
 	"monobook-notifications-link": "הודעות ($1)",
-	"monobook-notifications-link-none": "הודעות"
+	"monobook-notifications-link-none": "הודעות",
+	"monobook-responsive-label": "התאמת העיצוב \"מונובוק\" לרוחב המסך"
 }
