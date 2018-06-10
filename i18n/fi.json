@@ -4,7 +4,8 @@
 			"Crt",
 			"McSalama",
 			"Jack Phoenix",
-			"Nike"
+			"Nike",
+			"01miki10"
 		]
 	},
 	"skinname-monobook": "Monobook",
@@ -13,6 +14,8 @@
 	"monobook.js": "/* Tämän sivun JavaScript-koodi liitetään Monobook-tyyliin */",
 	"monobook-jumptotop": "takaisin alkuun",
 	"monobook-jumptopersonal": "käyttäjätyökalut",
+	"monobook-jumptonavigation": "Siirry navigaatioon",
+	"monobook-jumptosearch": "Siirry hakuun",
 	"monobook-more-actions": "Lisää",
 	"monobook-cactions-label": "Sivun toiminnot",
 	"monobook-notifications-link": "Ilmoitukset ($1)",
