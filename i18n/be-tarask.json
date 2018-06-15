@@ -12,5 +12,7 @@
 	"monobook-jumptosearch": "Перайсьці да пошуку",
 	"monobook-more-actions": "Болей",
 	"monobook-cactions-label": "Дзеяньні на старонцы",
-	"monobook-notifications-link": "Паведамленьні ($1)"
+	"monobook-notifications-link": "Паведамленьні ($1)",
+	"monobook-notifications-link-none": "Паведамленьні",
+	"monobook-responsive-label": "Уключыць хуткадзейны дызайн MonoBook"
 }
