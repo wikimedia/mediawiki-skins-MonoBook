@@ -18,5 +18,6 @@
 	"monobook-more-actions": "Więcej",
 	"monobook-cactions-label": "Działania na stronie",
 	"monobook-notifications-link": "Powiadomienia ($1)",
-	"monobook-notifications-link-none": "Powiadomienia"
+	"monobook-notifications-link-none": "Powiadomienia",
+	"monobook-responsive-label": "Włącz responsywny design skórki MonoBook"
 }
