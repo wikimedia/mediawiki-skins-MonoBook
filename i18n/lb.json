@@ -10,8 +10,11 @@
 	"monobook.js": "/* All JavaScript hei gëtt gelueden esoubal ee Benotzer d'Ausgesinn MonoBook benotzt */",
 	"monobook-jumptotop": "zréck uewen op d'Säit",
 	"monobook-jumptopersonal": "Geschir fir Benotzer",
+	"monobook-jumptonavigation": "Op d'Navigatioun wiesselen",
+	"monobook-jumptosearch": "Op d'Siche wiesselen",
 	"monobook-more-actions": "Méi",
 	"monobook-cactions-label": "Säitenaktiounen",
 	"monobook-notifications-link": "Notifikatiounen ($1)",
-	"monobook-notifications-link-none": "Notifikatiounen"
+	"monobook-notifications-link-none": "Notifikatiounen",
+	"monobook-responsive-label": "Reaktive MonoBook-Design aktivéieren"
 }
