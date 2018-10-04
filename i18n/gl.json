@@ -3,7 +3,8 @@
 		"authors": [
 			"Toliño",
 			"Xosé",
-			"Banjo"
+			"Banjo",
+			"Elisardojm"
 		]
 	},
 	"skinname-monobook": "MonoBook",
@@ -12,7 +13,7 @@
 	"monobook.js": "/* Calquera JavaScript que haxa aquí será cargado para os usuarios que usen a aparencia MonoBook */",
 	"monobook-jumptopersonal": "ferramentas de usuario",
 	"monobook-jumptonavigation": "Saltar ata a navegación",
-	"monobook-jumptosearch": "Saltar á busca",
+	"monobook-jumptosearch": "Saltar á procura",
 	"monobook-more-actions": "Máis",
 	"monobook-notifications-link": "Notificacións ($1)",
 	"monobook-notifications-link-none": "Notificacións"
