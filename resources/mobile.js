@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	$( function () {
 		var mobileCutoffWidth = 550,
 			// Track if DOM has been set up for mobile fanciness yet
@@ -88,4 +88,4 @@
 		$( window ).resize( setupMonoBookMobile );
 		setupMonoBookMobile();
 	} );
-}( mediaWiki, jQuery ) );
+}() );

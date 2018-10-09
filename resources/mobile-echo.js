@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	$( function () {
 		var mobileCutoffWidth = 550,
 			notificationIcons = $( '#pt-notifications-alert, #pt-notifications-notice' ),
@@ -54,4 +54,4 @@
 		$( window ).resize( monoBookMobileEchoHack );
 		monoBookMobileEchoHack();
 	} );
-}( mediaWiki, jQuery ) );
+}() );
