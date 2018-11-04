@@ -266,7 +266,7 @@ class MonoBookTemplate extends BaseTemplate {
 		$html = '';
 
 		if ( $this->config->get( 'UseTwoButtonsSearchForm' ) ) {
-			$optionButtons = '&#160; ' . $this->makeSearchButton(
+			$optionButtons = "\u{00A0} " . $this->makeSearchButton(
 				'fulltext',
 				[ 'id' => 'mw-searchButton', 'class' => 'searchButton' ]
 			);
