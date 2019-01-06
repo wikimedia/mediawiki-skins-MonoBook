@@ -45,6 +45,7 @@
 					];
 					$.each( newTabs, function ( i, item ) {
 						var a = $( '#' + item + ' a' );
+						// TODO check if we're on the page and add class=selected
 
 						if ( a.length ) {
 							mw.util.addPortletLink(
