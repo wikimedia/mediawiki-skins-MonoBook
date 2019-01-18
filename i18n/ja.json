@@ -4,7 +4,8 @@
 			"Fryed-peach",
 			"青子守歌",
 			"Takot",
-			"Otokoume"
+			"Otokoume",
+			"Darklanlan"
 		]
 	},
 	"skinname-monobook": "モノブック",
@@ -15,5 +16,6 @@
 	"monobook-jumptonavigation": "ナビゲーションに移動",
 	"monobook-jumptosearch": "検索に移動",
 	"monobook-notifications-link": "通知 ($1件)",
-	"monobook-notifications-link-none": "通知"
+	"monobook-notifications-link-none": "通知",
+	"monobook-responsive-label": "レスポンシブデザインのモノブックを有効にする"
 }
