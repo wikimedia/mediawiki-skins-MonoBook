@@ -115,7 +115,7 @@ class SkinMonoBook extends SkinTemplate {
 				'localBasePath' => __DIR__ . '/..',
 				'remoteSkinPath' => 'MonoBook',
 
-				'targets' => [ 'desktop', 'mobile' ],
+				'targets' => [ 'desktop' ],
 				'scripts' => [ 'resources/mobile-uls.js' ],
 				'dependencies' => [ 'ext.uls.interface' ],
 			] );
