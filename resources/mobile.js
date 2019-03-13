@@ -1,4 +1,4 @@
-/* eslint-disable jquery/no-global-selector */
+/* eslint-disable no-jquery/no-global-selector */
 $( function () {
 	var mobileCutoffWidth = 550,
 		// Track if DOM has been set up for mobile fanciness yet
@@ -61,7 +61,7 @@ $( function () {
 				} );
 			} );
 
-			// eslint-disable-next-line jquery/no-each-util
+			// eslint-disable-next-line no-jquery/no-each-util
 			$.each( toggles, function ( toggle, target ) {
 				// Add close buttons
 				$( target ).append( $( '<div>' ).addClass( 'mobile-close-button' ) );
