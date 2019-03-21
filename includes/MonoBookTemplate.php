@@ -452,6 +452,7 @@ class MonoBookTemplate extends BaseTemplate {
 			}
 			// Compatibility with extensions still using SkinTemplateToolboxEnd or similar
 			if ( is_array( $options['hooks'] ) ) {
+				// @phan-suppress-next-line PhanTypeMismatchForeach T218843
 				foreach ( $options['hooks'] as $hook => $hookOptions ) {
 					$contentText .= $this->deprecatedHookHack( $hook, $hookOptions );
 				}
