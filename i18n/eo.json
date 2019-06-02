@@ -6,6 +6,7 @@
 		]
 	},
 	"skinname-monobook": "Librejo",
+	"monobook-desc": "La klasika MediaVikia etoso ekde 2004, nomita laŭ la nigrablanka foto de libro en la paĝa fono",
 	"monobook.css": "/* La jena CSS influos la paĝaspekton por uzantoj de la Libreja temo. */",
 	"monobook.js": "/* La jena Ĝavaskripto ŝargiĝos por uzantoj de la Libreja temo. */",
 	"monobook-jumptotop": "reiri supren",
@@ -15,5 +16,6 @@
 	"monobook-more-actions": "Pli",
 	"monobook-cactions-label": "Agoj pri paĝo",
 	"monobook-notifications-link": "Sciigoj ($1)",
-	"monobook-notifications-link-none": "Sciigoj"
+	"monobook-notifications-link-none": "Sciigoj",
+	"monobook-responsive-label": "Ŝalti respondeman dezajnon de MonoBook"
 }
