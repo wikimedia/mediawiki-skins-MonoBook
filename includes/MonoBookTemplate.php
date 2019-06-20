@@ -343,14 +343,11 @@ class MonoBookTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getBox( $name, $contents, $msg = null, $setOptions = [] ) {
-		$options = [
+		$options = array_merge( [
 			'class' => 'portlet',
 			'body-class' => 'pBody',
 			'text-wrapper' => ''
-		];
-		foreach ( $setOptions as $key => $value ) {
-			$options[$key] = $value;
-		}
+		], $setOptions );
 
 		// Do some special stuff for the personal menu
 		if ( $name == 'personal' ) {
@@ -388,7 +385,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 */
 	protected function getPortlet( $name, $content, $msg = null, $setOptions = [] ) {
 		// random stuff to override with any provided options
-		$options = [
+		$options = array_merge( [
 			// handle role=search a little differently
 			'role' => 'navigation',
 			'search-input-id' => 'searchInput',
@@ -405,11 +402,7 @@ class MonoBookTemplate extends BaseTemplate {
 			'hooks' => '',
 			// option to stick arbitrary stuff at the beginning of the ul
 			'list-prepend' => ''
-		];
-		// set options based on input
-		foreach ( $setOptions as $key => $value ) {
-			$options[$key] = $value;
-		}
+		], $setOptions );
 
 		// Handle the different $msg possibilities
 		if ( $msg === null ) {
