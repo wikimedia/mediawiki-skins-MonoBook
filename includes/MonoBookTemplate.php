@@ -526,7 +526,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 * We no longer do things that way.
 	 *
 	 * @param string $hook event
-	 * @param array $hookOptions args
+	 * @param mixed $hookOptions args
 	 *
 	 * @return string html
 	 */
