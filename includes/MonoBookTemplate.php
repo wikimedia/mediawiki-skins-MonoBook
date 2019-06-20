@@ -83,11 +83,11 @@ class MonoBookTemplate extends BaseTemplate {
 				$this->getIfExists( 'catlinks' ) .
 
 				'<!-- end content -->' .
-				$this->getIfExists( 'dataAfterContent' ) .
 				$this->getClear()
 			)
 		);
 		$html .= $this->deprecatedHookHack( 'MonoBookAfterContent' );
+		$html .= $this->getIfExists( 'dataAfterContent' ) . $this->getClear();
 		$html .= Html::closeElement( 'div' );
 
 		$html .= Html::rawElement( 'div',

@@ -16,6 +16,10 @@ div#column-content {
 	border-right: 0;
 }
 
+#mw-data-after-content {
+	margin-left: 12.2em;
+}
+
 div#column-one {
 	padding-top: 160px;
 }
