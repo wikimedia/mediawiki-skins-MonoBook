@@ -168,7 +168,7 @@ input.searchButton {
 	/* Avoid overlap with the logo. */
 	padding-left: 14em;
 	margin: 0;
-	text-align: right;
+	float: right;
 	list-style-type: none;
 	list-style-image: none;
 	z-index: 0;
