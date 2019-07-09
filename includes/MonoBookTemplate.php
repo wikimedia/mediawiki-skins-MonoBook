@@ -337,6 +337,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 *
 	 * @param string $name
 	 * @param array|string $contents
+	 * @param-taint $contents escapes_htmlnoent
 	 * @param null|string|array|bool $msg
 	 * @param array $setOptions
 	 *
