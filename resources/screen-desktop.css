@@ -179,6 +179,8 @@ input.searchButton {
 	background: none;
 	cursor: default;
 	text-transform: lowercase;
+	box-sizing: border-box;
+	max-width: 100%;
 }
 
 #p-personal li {
