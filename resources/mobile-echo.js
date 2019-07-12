@@ -1,6 +1,6 @@
 /* eslint-disable no-jquery/no-global-selector */
 $( function () {
-	var mobileCutoffWidth = 550,
+	var mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
 		echoHacked = false,
 		echoHackActive = false,
 		notifications = $( '#pt-notifications-alert a' ).data( 'counter-num' ) + $( '#pt-notifications-notice a' ).data( 'counter-num' ),
@@ -16,11 +16,11 @@ $( function () {
 	function monoBookMobileMoveEchoIcons() {
 		var $notificationIcons = getNotificationIcons();
 		if ( $notificationIcons.length ) {
-			if ( !echoHackActive && $( window ).width() <= mobileCutoffWidth ) {
+			if ( !echoHackActive && mobileMediaQuery.matches ) {
 				$( '#echo-hack-badges' ).append( $notificationIcons );
 
 				echoHackActive = true;
-			} else if ( echoHackActive && $( window ).width() > mobileCutoffWidth ) {
+			} else if ( echoHackActive && !mobileMediaQuery.matches ) {
 				$( $notificationIcons ).insertBefore( '#pt-mytalk' );
 
 				echoHackActive = false;
@@ -31,7 +31,7 @@ $( function () {
 	function monoBookMobileEchoHack() {
 		var $notificationIcons = getNotificationIcons();
 		if ( $notificationIcons.length ) {
-			if ( !echoHacked && $( window ).width() <= mobileCutoffWidth ) {
+			if ( !echoHacked && mobileMediaQuery.matches ) {
 				if ( notifications ) {
 					notificationsString = mw.msg( 'monobook-notifications-link', notifications );
 				} else {
