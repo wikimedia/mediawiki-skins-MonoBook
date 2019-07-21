@@ -304,15 +304,15 @@ class MonoBookTemplate extends BaseTemplate {
 	 */
 	protected function getToolboxBox() {
 		$html = '';
-		$skin = $this;
+		$template = $this;
 
 		$html .= $this->getBox( 'tb', $this->getToolbox(), 'toolbox', [ 'hooks' => [
 			// Deprecated hooks
-			'MonoBookTemplateToolboxEnd' => [ &$skin ],
-			'SkinTemplateToolboxEnd' => [ &$skin, true ]
+			'MonoBookTemplateToolboxEnd' => [ &$template ],
+			'SkinTemplateToolboxEnd' => [ &$template, true ]
 		] ] );
 
-		$html .= $this->deprecatedHookHack( 'MonoBookAfterToolbox' );
+		$html .= $this->deprecatedHookHack( 'MonoBookAfterToolbox', [ $template ] );
 
 		return $html;
 	}
