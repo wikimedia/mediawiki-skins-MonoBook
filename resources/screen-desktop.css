@@ -1,9 +1,5 @@
 /*
 ** Desktop-specific styles for MonoBook
-**
-** Must remain simple css (not less) for IE8- support; ResourceLoader does not support
-** conditional IE loading, and so we cannot depend on it for anything here as this file
-** is also loaded directly, bypassing ResourceLoader, in those browsers.
 */
 
 div#column-content {

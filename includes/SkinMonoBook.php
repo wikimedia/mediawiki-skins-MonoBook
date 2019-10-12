@@ -66,12 +66,9 @@ class SkinMonoBook extends SkinTemplate {
 			$styleModule
 		] );
 
-		// TODO: Migrate all of these (get RL support for conditional IE)
 		// Force desktop styles in IE 8-; no support for @media widths
+		// FIXME: Remove conditional comment dependency.
 		$out->addStyle( $this->stylename . '/resources/screen-desktop.css', 'screen', 'lt IE 9' );
-		// Miscellanious fixes
-		$out->addStyle( $this->stylename . '/resources/IE60Fixes.css', 'screen', 'IE 6' );
-		$out->addStyle( $this->stylename . '/resources/IE70Fixes.css', 'screen', 'IE 7' );
 	}
 
 	/**
