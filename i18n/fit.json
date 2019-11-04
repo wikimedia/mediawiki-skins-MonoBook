@@ -8,5 +8,7 @@
 	"monobook-jumptopersonal": "käyttäjätyöneuvot",
 	"monobook-jumptonavigation": "Siiry navikeerinkhiin",
 	"monobook-jumptosearch": "Siiry hakuun",
-	"monobook-more-actions": "Lissää"
+	"monobook-more-actions": "Lissää",
+	"monobook-notifications-link": "Ilmotukset ($1)",
+	"monobook-notifications-link-none": "Ilmotukset"
 }
