@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"skinname-monobook": "MonoBook",
@@ -9,7 +10,7 @@
 	"monobook.css": "/* Dës CSS huet nëmmen Afloss op de Skin ''Monobook''  */",
 	"monobook.js": "/* All JavaScript hei gëtt gelueden esoubal ee Benotzer d'Ausgesinn MonoBook benotzt */",
 	"monobook-jumptotop": "zréck uewen op d'Säit",
-	"monobook-jumptopersonal": "Geschir fir Benotzer",
+	"monobook-jumptopersonal": "Geschier fir Benotzer",
 	"monobook-jumptonavigation": "Op d'Navigatioun wiesselen",
 	"monobook-jumptosearch": "Op d'Siche wiesselen",
 	"monobook-more-actions": "Méi",
