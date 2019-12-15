@@ -557,8 +557,10 @@ class MonoBookTemplate extends BaseTemplate {
 
 		$html = '';
 
+		// @phan-suppress-next-line PhanImpossibleCondition
 		if ( ( $options['loose'] && $this->data[$object] != '' ) ||
 			( !$options['loose'] && $this->data[$object] ) ) {
+			// @phan-suppress-previous-line PhanRedundantCondition
 			if ( $options['wrapper'] == 'none' ) {
 				$html .= $this->get( $object );
 			} else {
