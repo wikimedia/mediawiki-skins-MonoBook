@@ -64,6 +64,29 @@ class SkinMonoBook extends SkinTemplate {
 	}
 
 	/**
+	 * Add the "monobook-capitalize-all-nouns" CSS class to the <body> element for German
+	 * (de) and various languages which have German set as a fallback language, such
+	 * as Colognian (ksh) and others.
+	 *
+	 * @see https://phabricator.wikimedia.org/T97892
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBodyAttributes
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @param array &$bodyAttrs Pre-existing attributes for the <body> element
+	 */
+	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
+		$lang = $skin->getLanguage();
+		if (
+			$skin->getSkinName() === 'monobook' && (
+				$lang->getCode() === 'de' ||
+				in_array( 'de', $lang->getFallbackLanguages() )
+			)
+		) {
+			$bodyAttrs['class'] .= ' monobook-capitalize-all-nouns';
+		}
+	}
+
+	/**
 	 * @param User $user
 	 * @param array &$preferences
 	 */

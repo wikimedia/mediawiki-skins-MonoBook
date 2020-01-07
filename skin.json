@@ -26,6 +26,7 @@
 		"monobook": "resources/mediawiki.less"
 	},
 	"Hooks": {
+		"OutputPageBodyAttributes": "SkinMonoBook::onOutputPageBodyAttributes",
 		"GetPreferences": "SkinMonoBook::onGetPreferences"
 	},
 	"MessagesDirs": {
