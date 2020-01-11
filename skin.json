@@ -46,8 +46,16 @@
 		},
 		"skins.monobook.responsive": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "logo" ],
-			"targets": [ "desktop", "mobile" ],
+			"features": [
+				"elements",
+				"content",
+				"interface",
+				"logo"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"styles": {
 				"resources/screen-common.less": {
 					"media": "screen"
@@ -61,7 +69,10 @@
 			}
 		},
 		"skins.monobook.mobile": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"resources/mobile.js"
 			],
@@ -92,5 +103,5 @@
 		"SkinMonoBook": "includes/SkinMonoBook.php",
 		"MonoBookTemplate": "includes/MonoBookTemplate.php"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
