@@ -383,6 +383,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 * @param array $setOptions random crap to rename/do/whatever
 	 *
 	 * @return string html
+	 * @suppress PhanTypeMismatchArgumentNullable Many false positives
 	 */
 	protected function getPortlet( $name, $content, $msg = null, $setOptions = [] ) {
 		// random stuff to override with any provided options
