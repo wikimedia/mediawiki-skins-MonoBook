@@ -61,7 +61,6 @@ class SkinMonoBook extends SkinTemplate {
 		}
 
 		$out->addModuleStyles( [
-			'mediawiki.skinning.interface',
 			'mediawiki.skinning.content.externallinks',
 			$styleModule
 		] );
