@@ -34,7 +34,7 @@
 	"ResourceModules": {
 		"skins.monobook.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "logo" ],
+			"features": [ "elements", "content", "interface", "logo", "legacy" ],
 			"styles": {
 				"resources/screen-common.less": {
 					"media": "screen"
@@ -50,6 +50,7 @@
 				"elements",
 				"content",
 				"interface",
+				"legacy",
 				"logo"
 			],
 			"targets": [
@@ -69,10 +70,9 @@
 			}
 		},
 		"skins.monobook.mobile": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "elements", "content", "interface", "logo", "legacy" ],
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"resources/mobile.js"
 			],
