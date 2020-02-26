@@ -75,13 +75,14 @@ class SkinMonoBook extends SkinTemplate {
 	 * @param array &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		if ( $user->getOption( 'skin' ) === 'monobook' ) {
-			$preferences['monobook-responsive'] = [
-				'type' => 'toggle',
-				'label-message' => 'monobook-responsive-label',
-				'section' => 'rendering/skin',
-			];
-		}
+		$preferences['monobook-responsive'] = [
+			'type' => 'toggle',
+			'label-message' => 'monobook-responsive-label',
+			'section' => 'rendering/skin/skin-prefs',
+			// Only show this section when the Monobook skin is checked. The JavaScript client also uses
+			// this state to determine whether to show or hide the whole section.
+			'hide-if' => [ '!==', 'wpskin', 'monobook' ],
+		];
 	}
 
 	/**
