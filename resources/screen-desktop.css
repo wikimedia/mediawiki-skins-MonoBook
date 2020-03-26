@@ -2,7 +2,7 @@
 ** Desktop-specific styles for MonoBook
 */
 
-div#column-content {
+#column-content {
 	float: right;
 	margin: 0 0 0.6em -12.2em;
 }
@@ -16,7 +16,7 @@ div#column-content {
 	margin-left: 12.2em;
 }
 
-div#column-one {
+#column-one {
 	padding-top: 160px;
 }
 

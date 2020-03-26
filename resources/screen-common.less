@@ -15,7 +15,7 @@
 ** Common styles across desktop and mobile
 */
 
-div#column-content {
+#column-content {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -45,8 +45,8 @@ div#column-content {
 ** http://style.cleverchimp.com/font_size_intervals/altintervals.html
 ** https://web.archive.org/web/20180201141931/http://style.cleverchimp.com/font_size_intervals/altintervals.html
 ** This affects users whose browser font size setting is < 14.4px,
-** making div#globalWrapper's font-size 11.43px at minimum.
-** Gadgets have their own monobook-specific css rule to set the font-size similar to div#globalWrapper.
+** making #globalWrapper's font-size 11.43px at minimum.
+** Gadgets have their own monobook-specific css rule to set the font-size similar to #globalWrapper.
 */
 body {
 	font-family: sans-serif;
@@ -66,7 +66,7 @@ body {
 }
 
 /* scale back up to a sane default */
-div#globalWrapper {
+#globalWrapper {
 	font-size: 127%; // Typical: x-small * 127% == 12.7px;
 	width: 100%;
 	margin: 0;
