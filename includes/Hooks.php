@@ -24,6 +24,7 @@ namespace MonoBook;
 
 use OutputPage;
 use Skin;
+use SkinTemplate;
 
 class Hooks {
 	/**
@@ -46,6 +47,53 @@ class Hooks {
 			)
 		) {
 			$bodyAttrs['class'] .= ' monobook-capitalize-all-nouns';
+		}
+	}
+
+	/**
+	 * SkinTemplateNavigationUniversal hook handler
+	 *
+	 * @param SkinTemplate $skin
+	 * @param array &$content_navigation
+	 */
+	public static function onSkinTemplateNavigationUniversal( SkinTemplate $skin, array &$content_navigation ) {
+		$title = $skin->getTitle();
+		if ( $skin->getSkinName() === 'monobook' ) {
+			$tabs = [];
+			$namespaces = $content_navigation['namespaces'];
+			foreach ( $namespaces as $nsid => $attribs ) {
+				$id = $nsid . '-mobile';
+				$tabs[$id] = [] + $attribs;
+				$tabs[$id]['title'] = $attribs['text'];
+				$tabs[$id]['id'] = $id;
+			}
+
+			if ( !$title->isSpecialPage() ) {
+				$tabs['more'] = [
+					'text' => $skin->msg( 'monobook-more-actions' )->text(),
+					'href' => '#p-cactions',
+					'id' => 'ca-more'
+				];
+			}
+
+			$tabs['toolbox'] = [
+				'text' => $skin->msg( 'toolbox' )->text(),
+				'href' => '#p-tb',
+				'id' => 'ca-tools',
+				'title' => $skin->msg( 'toolbox' )->text()
+			];
+
+			$languages = $skin->getLanguages();
+			if ( count( $languages ) > 0 ) {
+				$tabs['languages'] = [
+					'text' => $skin->msg( 'otherlanguages' )->text(),
+					'href' => '#p-lang',
+					'id' => 'ca-languages',
+					'title' => $skin->msg( 'otherlanguages' )->text()
+				];
+			}
+
+			$content_navigation['cactions-mobile'] = $tabs;
 		}
 	}
 }

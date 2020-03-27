@@ -15,14 +15,28 @@
 	},
 	"ValidSkinNames": {
 		"monobook": {
-			"class": "SkinTemplate",
+			"class": "SkinMustache",
 			"args": [
 				{
 					"name": "monobook",
+					"responsive": true,
+					"templateDirectory": "templates/",
 					"scripts": [ "skins.monobook.scripts" ],
 					"styles": [ "skins.monobook.styles" ],
-					"responsive": true,
-					"template": "MonoBook\\MonoBookTemplate"
+					"messages": [
+						"tagline",
+						"nstab-main",
+						"nstab-talk",
+						"monobook-more-actions",
+						"otherlanguages",
+						"toolbox",
+						"navigation-heading",
+						"monobook-jumptotop",
+						"monobook-jumptopersonal",
+						"monobook-jumptosearch",
+						"monobook-cactions-label",
+						"monobook-jumptonavigation"
+					]
 				}
 			]
 		}
@@ -34,7 +48,8 @@
 		"monobook": "resources/mediawiki.less"
 	},
 	"Hooks": {
-		"OutputPageBodyAttributes": "MonoBook\\Hooks::onOutputPageBodyAttributes"
+		"OutputPageBodyAttributes": "MonoBook\\Hooks::onOutputPageBodyAttributes",
+		"SkinTemplateNavigation::Universal": "MonoBook\\Hooks::onSkinTemplateNavigationUniversal"
 	},
 	"MessagesDirs": {
 		"MonoBook": [
