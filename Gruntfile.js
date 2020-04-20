@@ -1,28 +1,22 @@
-/* eslint-env node */
+/* eslint-env node, es6 */
+
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'skin.json' );
+
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
-	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.loadNpmTasks( 'grunt-svgmin' );
 
 	grunt.initConfig( {
 		eslint: {
 			options: {
+				extensions: [ '.js', '.json' ],
 				cache: true
 			},
 			all: [
-				'*.js',
-				'**/*.js',
-				'!node_modules/**',
-				'!vendor/**'
-			]
-		},
-		jsonlint: {
-			all: [
-				'*.json',
-				'**/*.json',
+				'*.{js,json}',
+				'**/*.{js,json}',
 				'!node_modules/**',
 				'!vendor/**'
 			]
@@ -33,8 +27,7 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			all: [
-				'*.{le,c}ss',
-				'**/*.{le,c}ss',
+				'**/*.{css,less}',
 				'!node_modules/**',
 				'!vendor/**'
 			]
@@ -78,6 +71,6 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'minify', 'svgmin' );
-	grunt.registerTask( 'test', [ 'eslint', 'jsonlint', 'banana', 'stylelint' ] );
+	grunt.registerTask( 'test', [ 'eslint', 'banana', 'stylelint' ] );
 	grunt.registerTask( 'default', [ 'minify', 'test' ] );
 };
