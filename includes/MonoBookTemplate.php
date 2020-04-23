@@ -589,6 +589,7 @@ class MonoBookTemplate extends BaseTemplate {
 
 		$html .= Html::openElement( 'div', [
 			'id' => 'footer',
+			'class' => 'mw-footer',
 			'role' => 'contentinfo',
 			'lang' => $this->get( 'userlang' ),
 			'dir' => $this->get( 'dir' )
