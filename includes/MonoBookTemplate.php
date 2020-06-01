@@ -324,9 +324,15 @@ class MonoBookTemplate extends BaseTemplate {
 	 */
 	protected function getLanguageBox( $languages ) {
 		$html = '';
+		$name = 'lang';
 
-		if ( $languages !== [] ) {
-			$html .= $this->getBox( 'lang', $languages, 'otherlanguages' );
+		if (
+			$languages !== [] ||
+			// Check getAfterPortlet to make sure the languages are shown
+			// when empty but something has been injected in the portal. (T252841)
+			$this->getAfterPortlet( $name )
+		) {
+			$html .= $this->getBox( $name, $languages, 'otherlanguages' );
 		}
 
 		return $html;
