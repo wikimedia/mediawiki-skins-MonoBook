@@ -197,7 +197,9 @@ class MonoBookTemplate extends BaseTemplate {
 			'id' => 'ca-tools',
 			'title' => $this->getMsg( 'toolbox' )->text()
 		];
-		if ( $this->data['language_urls'] !== false ) {
+
+		$languages = $this->data['sidebar']['LANGUAGES'];
+		if ( $languages !== false ) {
 			$tabs['languages'] = [
 				'text' => $this->getMsg( 'otherlanguages' )->text(),
 				'href' => '#p-lang',
@@ -215,6 +217,8 @@ class MonoBookTemplate extends BaseTemplate {
 	 * Generate the full sidebar
 	 *
 	 * @return string html
+	 * @suppress PhanTypeMismatchArgument $content is an array
+	 * even though we are comparing it to boolean
 	 */
 	protected function getRenderedSidebar() {
 		$sidebar = $this->data['sidebar'];
@@ -222,12 +226,6 @@ class MonoBookTemplate extends BaseTemplate {
 
 		if ( !isset( $sidebar['SEARCH'] ) ) {
 			$sidebar['SEARCH'] = true;
-		}
-		if ( !isset( $sidebar['TOOLBOX'] ) ) {
-			$sidebar['TOOLBOX'] = true;
-		}
-		if ( !isset( $sidebar['LANGUAGES'] ) ) {
-			$sidebar['LANGUAGES'] = true;
 		}
 
 		foreach ( $sidebar as $boxName => $content ) {
@@ -241,9 +239,9 @@ class MonoBookTemplate extends BaseTemplate {
 			if ( $boxName == 'SEARCH' ) {
 				$html .= $this->getSearchBox();
 			} elseif ( $boxName == 'TOOLBOX' ) {
-				$html .= $this->getToolboxBox();
+				$html .= $this->getToolboxBox( $content );
 			} elseif ( $boxName == 'LANGUAGES' ) {
-				$html .= $this->getLanguageBox();
+				$html .= $this->getLanguageBox( $content );
 			} else {
 				$html .= $this->getBox(
 					$boxName,
@@ -300,13 +298,14 @@ class MonoBookTemplate extends BaseTemplate {
 	/**
 	 * Generate the toolbox, complete with all three old hooks
 	 *
+	 * @param array $toolboxItems
 	 * @return string html
 	 */
-	protected function getToolboxBox() {
+	protected function getToolboxBox( $toolboxItems ) {
 		$html = '';
 		$template = $this;
 
-		$html .= $this->getBox( 'tb', $this->getToolbox(), 'toolbox', [ 'hooks' => [
+		$html .= $this->getBox( 'tb', $toolboxItems, 'toolbox', [ 'hooks' => [
 			// Deprecated hooks
 			'MonoBookTemplateToolboxEnd' => [ &$template ],
 			'SkinTemplateToolboxEnd' => [ &$template, true ]
@@ -320,13 +319,14 @@ class MonoBookTemplate extends BaseTemplate {
 	/**
 	 * Generate the languages box
 	 *
+	 * @param array $languages Interwiki language links
 	 * @return string html
 	 */
-	protected function getLanguageBox() {
+	protected function getLanguageBox( $languages ) {
 		$html = '';
 
-		if ( $this->data['language_urls'] !== false ) {
-			$html .= $this->getBox( 'lang', $this->data['language_urls'], 'otherlanguages' );
+		if ( $languages !== [] ) {
+			$html .= $this->getBox( 'lang', $languages, 'otherlanguages' );
 		}
 
 		return $html;
