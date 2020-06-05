@@ -307,8 +307,7 @@ class MonoBookTemplate extends BaseTemplate {
 
 		$html .= $this->getBox( 'tb', $toolboxItems, 'toolbox', [ 'hooks' => [
 			// Deprecated hooks
-			'MonoBookTemplateToolboxEnd' => [ &$template ],
-			'SkinTemplateToolboxEnd' => [ &$template, true ]
+			'MonoBookTemplateToolboxEnd' => [ &$template ]
 		] ] );
 
 		$html .= $this->deprecatedHookHack( 'MonoBookAfterToolbox', [ $template ] );
