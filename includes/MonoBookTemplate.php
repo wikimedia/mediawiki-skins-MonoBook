@@ -303,13 +303,10 @@ class MonoBookTemplate extends BaseTemplate {
 	 */
 	protected function getToolboxBox( $toolboxItems ) {
 		$html = '';
+
+		$html .= $this->getBox( 'tb', $toolboxItems, 'toolbox' );
+
 		$template = $this;
-
-		$html .= $this->getBox( 'tb', $toolboxItems, 'toolbox', [ 'hooks' => [
-			// Deprecated hooks
-			'MonoBookTemplateToolboxEnd' => [ &$template ]
-		] ] );
-
 		$html .= $this->deprecatedHookHack( 'MonoBookAfterToolbox', [ $template ] );
 
 		return $html;
@@ -405,8 +402,6 @@ class MonoBookTemplate extends BaseTemplate {
 			'body-extra-classes' => '',
 			// wrapper for individual list items
 			'text-wrapper' => [ 'tag' => 'span' ],
-			// old toolbox hook support (use: [ 'SkinTemplateToolboxEnd' => [ &$skin, true ] ])
-			'hooks' => '',
 			// option to stick arbitrary stuff at the beginning of the ul
 			'list-prepend' => ''
 		], $setOptions );
@@ -450,13 +445,6 @@ class MonoBookTemplate extends BaseTemplate {
 					);
 				}
 			}
-			// Compatibility with extensions still using SkinTemplateToolboxEnd or similar
-			if ( is_array( $options['hooks'] ) ) {
-				foreach ( $options['hooks'] as $hook => $hookOptions ) {
-					$contentText .= $this->deprecatedHookHack( $hook, $hookOptions );
-				}
-			}
-
 			$contentText .= Html::closeElement( 'ul' );
 		} else {
 			$contentText = $content;
