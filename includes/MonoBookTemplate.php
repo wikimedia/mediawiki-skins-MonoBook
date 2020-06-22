@@ -223,6 +223,7 @@ class MonoBookTemplate extends BaseTemplate {
 	protected function getRenderedSidebar() {
 		$sidebar = $this->data['sidebar'];
 		$html = '';
+		$languagesHTML = '';
 
 		if ( !isset( $sidebar['SEARCH'] ) ) {
 			$sidebar['SEARCH'] = true;
@@ -241,7 +242,7 @@ class MonoBookTemplate extends BaseTemplate {
 			} elseif ( $boxName == 'TOOLBOX' ) {
 				$html .= $this->getToolboxBox( $content );
 			} elseif ( $boxName == 'LANGUAGES' ) {
-				$html .= $this->getLanguageBox( $content );
+				$languagesHTML = $this->getLanguageBox( $content );
 			} else {
 				$html .= $this->getBox(
 					$boxName,
@@ -252,7 +253,9 @@ class MonoBookTemplate extends BaseTemplate {
 			}
 		}
 
-		return $html;
+		// Output language portal last given it can be long
+		// on articles which support multiple languages (T254546)
+		return $html . $languagesHTML;
 	}
 
 	/**
