@@ -3,10 +3,3 @@ Hooks provided by the MonoBook skin.
 'MonoBookAfterContent': Called after #content has been closed but right
 before #column-content is closed. You can use this to inject items (such as
 ads, for example) from an extension.
-
-'MonoBookAfterToolbox': Called in toolbox() after the toolbox portlet (#p-tb)
-has been generated. You can use this to inject items (such as ads or a hit
-counter, for example) from an extension.
-This is the MonoBook couterpart to the VectorAfterToolbox hook in the Vector
-skin.
-$template: the MonoBookTemplate class instance
