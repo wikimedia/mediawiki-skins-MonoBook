@@ -6,14 +6,14 @@
 			"Rapsar"
 		]
 	},
-	"monobook-desc": "Sayfa 2004’teki bir kitabın siyah beyaz fotoğrafından sonra adlandırılan 2004’ten bu yana klasik MediaWiki görünümü",
+	"monobook-desc": "Sayfa 2004'teki bir kitabın siyah beyaz fotoğrafından sonra adlandırılan 2004'ten bu yana klasik MediaWiki görünümü",
 	"monobook.css": "/* Buraya konulacak CSS kodu tüm Monobook teması kullanan tüm kullanıcılarda etkin olur */",
-	"monobook-jumptotop": "yukarıya dön",
+	"monobook-jumptotop": "başa dön",
 	"monobook-jumptopersonal": "kullanıcı araçları",
 	"monobook-jumptonavigation": "Gezinti kısmına atla",
 	"monobook-jumptosearch": "Arama kısmına atla",
 	"monobook-more-actions": "Daha fazla",
-	"monobook-cactions-label": "Sayfa işlemleri",
+	"monobook-cactions-label": "Sayfa eylemleri",
 	"monobook-notifications-link": "Bildirimler ($1)",
 	"monobook-notifications-link-none": "Bildirimler",
 	"monobook-responsive-label": "Duyarlı MonoBook tasarımını etkinleştir"
