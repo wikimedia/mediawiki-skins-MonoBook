@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"ئارام بکر"
+		]
 	},
-	"skinname-monobook": "مۆنۆ"
+	"skinname-monobook": "مۆنۆ",
+	"monobook-more-actions": "زیاتر"
 }
