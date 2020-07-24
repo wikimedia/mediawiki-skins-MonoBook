@@ -208,9 +208,8 @@ input.searchButton {
 /* The icon in front of the username / login link */
 li#pt-userpage,
 li#pt-anonuserpage {
-	background-image: url( images/icon-user.gif );
 	/* @embed */
-	background-image: linear-gradient( transparent, transparent ), url( images/icon-user.svg );
+	background-image: url( images/icon-user.svg );
 	background-position: top left;
 	background-repeat: no-repeat;
 	padding-left: 20px;
