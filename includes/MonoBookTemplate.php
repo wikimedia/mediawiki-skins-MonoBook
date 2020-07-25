@@ -277,7 +277,7 @@ class MonoBookTemplate extends BaseTemplate {
 		],
 			Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
 			$this->makeSearchInput( [ 'id' => $searchInputId ] ) .
-			$this->makeSearchButton( 'go', [ 'id' => 'searchGoButton', 'class' => 'searchButton' ] ) .
+			$this->makeSearchButton( 'go', [ 'id' => 'searchButton', 'class' => 'searchButton' ] ) .
 			$optionButtons
 		);
 
