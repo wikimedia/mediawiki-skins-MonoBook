@@ -35,16 +35,21 @@ class SkinMonoBook extends SkinTemplate {
 	public $template = 'MonoBookTemplate';
 
 	/**
+	 * @inheritDoc
+	 * @return bool
+	 */
+	public function isResponsive() {
+		return $this->getUser()->getOption( 'monobook-responsive' );
+	}
+
+	/**
+	 * @inheritDoc
 	 * @param OutputPage $out
 	 */
-	public function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
+	public function initPage( OutputPage $out ) {
+		parent::initPage( $out );
 
-		if ( $out->getUser()->getOption( 'monobook-responsive' ) ) {
-			$out->addMeta( 'viewport',
-				'width=device-width, initial-scale=1.0, ' .
-				'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
-			);
+		if ( $this->isResponsive() ) {
 			$styleModule = 'skins.monobook.responsive';
 			$out->addModules( [
 				'skins.monobook.mobile'
