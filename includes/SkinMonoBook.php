@@ -69,10 +69,6 @@ class SkinMonoBook extends SkinTemplate {
 			'mediawiki.skinning.content.externallinks',
 			$styleModule
 		] );
-
-		// Force desktop styles in IE 8-; no support for @media widths
-		// FIXME: Remove conditional comment dependency.
-		$out->addStyle( $this->stylename . '/resources/screen-desktop.css', 'screen', 'lt IE 9' );
 	}
 
 	/**
