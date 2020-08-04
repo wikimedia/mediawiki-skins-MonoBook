@@ -54,13 +54,6 @@ class SkinMonoBook extends SkinTemplate {
 			$out->addModules( [
 				'skins.monobook.mobile'
 			] );
-
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
-				$out->addModules( [ 'skins.monobook.mobile.echohack' ] );
-			}
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
-				$out->addModules( [ 'skins.monobook.mobile.uls' ] );
-			}
 		} else {
 			$styleModule = 'skins.monobook.styles';
 		}
@@ -84,39 +77,5 @@ class SkinMonoBook extends SkinTemplate {
 			// this state to determine whether to show or hide the whole section.
 			'hide-if' => [ '!==', 'wpskin', 'monobook' ],
 		];
-	}
-
-	/**
-	 * Handler for ResourceLoaderRegisterModules hook
-	 * Check if extensions are loaded
-	 *
-	 * @param ResourceLoader $resourceLoader
-	 */
-	public static function registerMobileExtensionStyles( ResourceLoader $resourceLoader ) {
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
-			$resourceLoader->register( 'skins.monobook.mobile.echohack', [
-				'localBasePath' => __DIR__ . '/..',
-				'remoteSkinPath' => 'MonoBook',
-
-				'targets' => [ 'desktop', 'mobile' ],
-				'scripts' => [ 'resources/mobile-echo.js' ],
-				'styles' => [ 'resources/mobile-echo.less' => [
-					'media' => 'screen and (max-width: 550px)'
-				] ],
-				'dependencies' => [ 'oojs-ui.styles.icons-alerts', 'mediawiki.util' ],
-				'messages' => [ 'monobook-notifications-link', 'monobook-notifications-link-none' ]
-			] );
-		}
-
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
-			$resourceLoader->register( 'skins.monobook.mobile.uls', [
-				'localBasePath' => __DIR__ . '/..',
-				'remoteSkinPath' => 'MonoBook',
-
-				'targets' => [ 'desktop' ],
-				'scripts' => [ 'resources/mobile-uls.js' ],
-				'dependencies' => [ 'ext.uls.interface' ],
-			] );
-		}
 	}
 }

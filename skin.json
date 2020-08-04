@@ -23,8 +23,7 @@
 		"monobook-responsive": true
 	},
 	"Hooks": {
-		"GetPreferences": "SkinMonoBook::onGetPreferences",
-		"ResourceLoaderRegisterModules": "SkinMonoBook::registerMobileExtensionStyles"
+		"GetPreferences": "SkinMonoBook::onGetPreferences"
 	},
 	"MessagesDirs": {
 		"MonoBook": [
@@ -83,6 +82,27 @@
 				}
 			}
 		},
+		"skins.monobook.mobile.uls": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [ "resources/mobile-uls.js" ]
+		},
+		"skins.monobook.mobile.echohack": {
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [ "resources/mobile-echo.js" ],
+			"styles": {
+				"resources/mobile-echo.less": {
+					"media": "screen and (max-width: 550px)"
+				}
+			},
+			"dependencies": [
+				"oojs-ui.styles.icons-alerts",
+				"mediawiki.util"
+			],
+			"messages": [
+				"monobook-notifications-link",
+				"monobook-notifications-link-none"
+			]
+		},
 		"skins.monobook.mobile": {
 			"class": "ResourceLoaderSkinModule",
 			"features": [
@@ -94,8 +114,9 @@
 				"legacy"
 			],
 			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"resources/mobile.js"
+			"packageFiles": [
+				"resources/mobile.js",
+				"resources/optional-enhancements.js"
 			],
 			"styles": {
 				"resources/mobile.js.less": {
