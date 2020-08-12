@@ -4,6 +4,7 @@
 			"Lejonel",
 			"Lokal Profil",
 			"Mjälten",
+			"Sabelöga",
 			"Skalman",
 			"WikiPhoenix"
 		]
@@ -20,5 +21,5 @@
 	"monobook-cactions-label": "Sidåtgärder",
 	"monobook-notifications-link": "Aviseringar ($1)",
 	"monobook-notifications-link-none": "Aviseringar",
-	"monobook-responsive-label": "Aktivera responsiv MonoBook-utseende"
+	"monobook-responsive-label": "Aktivera responsivt MonoBook-utseende"
 }
