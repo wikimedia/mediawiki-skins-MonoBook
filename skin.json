@@ -48,6 +48,9 @@
 				},
 				"resources/screen-desktop.css": {
 					"media": "screen"
+				},
+				"resources/print-common.less": {
+					"media": "print"
 				}
 			}
 		},
@@ -74,6 +77,9 @@
 				},
 				"resources/screen-mobile.less": {
 					"media": "screen and (max-width: 550px)"
+				},
+				"resources/print-common.less": {
+					"media": "print"
 				}
 			}
 		},
