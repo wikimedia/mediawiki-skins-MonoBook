@@ -45,7 +45,7 @@
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
-				"resources/screen-desktop.css": {
+				"resources/screen-desktop.less": {
 					"media": "screen"
 				},
 				"resources/print-common.less": {
@@ -71,7 +71,7 @@
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
-				"resources/screen-desktop.css": {
+				"resources/screen-desktop.less": {
 					"media": "screen and (min-width: 551px)"
 				},
 				"resources/screen-mobile.less": {
