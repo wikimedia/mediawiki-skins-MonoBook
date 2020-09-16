@@ -22,6 +22,9 @@
 	"DefaultUserOptions": {
 		"monobook-responsive": true
 	},
+	"SkinLessImportPaths": {
+		"monobook": "resources/mediawiki.less"
+	},
 	"Hooks": {
 		"GetPreferences": "SkinMonoBook::onGetPreferences"
 	},
