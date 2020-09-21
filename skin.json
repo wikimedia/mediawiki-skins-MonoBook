@@ -36,14 +36,14 @@
 	"ResourceModules": {
 		"skins.monobook.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [
-				"normalize",
-				"elements",
-				"content",
-				"interface",
-				"logo",
-				"legacy"
-			],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"logo": true,
+				"legacy": true
+			},
 			"styles": {
 				"resources/screen-common.less": {
 					"media": "screen"
@@ -58,14 +58,14 @@
 		},
 		"skins.monobook.responsive": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [
-				"normalize",
-				"elements",
-				"content",
-				"interface",
-				"legacy",
-				"logo"
-			],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"legacy": true,
+				"logo": true
+			},
 			"targets": [
 				"desktop",
 				"mobile"
@@ -108,14 +108,14 @@
 		},
 		"skins.monobook.mobile": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [
-				"normalize",
-				"elements",
-				"content",
-				"interface",
-				"logo",
-				"legacy"
-			],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"logo": true,
+				"legacy": true
+			},
 			"targets": [ "desktop", "mobile" ],
 			"packageFiles": [
 				"resources/mobile.js",
