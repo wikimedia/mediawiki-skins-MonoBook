@@ -343,27 +343,6 @@ class MonoBookTemplate extends BaseTemplate {
 			'text-wrapper' => ''
 		], $setOptions );
 
-		// Do some special stuff for the personal menu
-		if ( $name == 'personal' ) {
-			$prependiture = '';
-
-			// Extension:UniversalLanguageSelector order - T121793
-			if ( array_key_exists( 'uls', $contents ) ) {
-				$prependiture .= $this->makeListItem( 'uls', $contents['uls'] );
-				unset( $contents['uls'] );
-			}
-			if ( !$this->getSkin()->getUser()->isLoggedIn() &&
-				User::groupHasPermission( '*', 'edit' )
-			) {
-				$prependiture .= Html::rawElement(
-					'li',
-					[ 'id' => 'pt-anonuserpage' ],
-					$this->getMsg( 'notloggedin' )->escaped()
-				);
-			}
-			$options['list-prepend'] = $prependiture;
-		}
-
 		return $this->getPortlet( $name, $contents, $msg, $options );
 	}
 
@@ -393,8 +372,6 @@ class MonoBookTemplate extends BaseTemplate {
 			'body-extra-classes' => '',
 			// wrapper for individual list items
 			'text-wrapper' => [ 'tag' => 'span' ],
-			// option to stick arbitrary stuff at the beginning of the ul
-			'list-prepend' => ''
 		], $setOptions );
 
 		// Handle the different $msg possibilities
@@ -421,7 +398,6 @@ class MonoBookTemplate extends BaseTemplate {
 			$contentText = Html::openElement( 'ul',
 				[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
 			);
-			$contentText .= $options['list-prepend'];
 			foreach ( $content as $key => $item ) {
 				if ( is_array( $options['text-wrapper'] ) ) {
 					$contentText .= $this->makeListItem(
