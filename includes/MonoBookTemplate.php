@@ -520,7 +520,7 @@ class MonoBookTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	protected function getSimpleFooter() {
-		$validFooterIcons = $this->getFooterIcons( 'icononly' );
+		$validFooterIcons = $this->get( 'footericons' );
 		$validFooterLinks = $this->getFooterLinks( 'flat' );
 
 		$html = '';
