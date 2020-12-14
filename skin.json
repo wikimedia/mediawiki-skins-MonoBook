@@ -63,6 +63,7 @@
 				"normalize": true,
 				"elements": true,
 				"content": true,
+				"content-links": true,
 				"interface": true,
 				"legacy": true,
 				"logo": true
