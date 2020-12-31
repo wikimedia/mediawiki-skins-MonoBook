@@ -7,6 +7,9 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 	grunt.initConfig( {
 		eslint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'*.js',
 				'**/*.js',
