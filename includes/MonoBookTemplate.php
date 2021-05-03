@@ -45,7 +45,7 @@ class MonoBookTemplate extends BaseTemplate {
 			Html::element( 'a', [ 'id' => 'top' ] ) .
 			$this->getIfExists( 'sitenotice', [
 				'wrapper' => 'div',
-				'parameters' => [ 'id' => 'siteNotice', 'class' => 'mw-body-content' ]
+				'parameters' => [ 'id' => 'siteNotice' ]
 			] ) .
 			$this->getIndicators() .
 			$this->getIfExists( 'title', [
@@ -57,7 +57,7 @@ class MonoBookTemplate extends BaseTemplate {
 					'lang' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode()
 				]
 			] ) .
-			Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'mw-body-content' ],
+			Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'monobook-body' ],
 				Html::rawElement( 'div', [ 'id' => 'siteSub' ], $this->getMsg( 'tagline' )->parse() ) .
 				Html::rawElement(
 					'div',
