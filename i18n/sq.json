@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Besnik b",
 			"Bjakupi",
 			"Dori"
 		]
 	},
 	"monobook.css": "/* redaktoni këtë faqe për të përshtatur pamjen Monobook për tëra faqet tuaja */",
-	"monobook-responsive-label": "Mundeso dizajnin pergjegjes te MonoLibrit"
+	"monobook-responsive-label": "Aktivizo dizajn reagues MonoBook"
 }
