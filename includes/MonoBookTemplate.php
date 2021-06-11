@@ -317,7 +317,7 @@ class MonoBookTemplate extends BaseTemplate {
 			$languages !== [] ||
 			// Check getAfterPortlet to make sure the languages are shown
 			// when empty but something has been injected in the portal. (T252841)
-			$this->getAfterPortlet( $name )
+			$this->getAfterPortletHTML( $name )
 		) {
 			$html .= $this->getBox( $name, $languages, 'otherlanguages' );
 		}
@@ -446,8 +446,7 @@ class MonoBookTemplate extends BaseTemplate {
 		$html = Html::rawElement( 'div', $divOptions,
 			Html::rawElement( 'h3', $labelOptions, $msgString ) .
 			Html::rawElement( 'div', $bodyDivOptions,
-				$contentText .
-				$this->getAfterPortlet( $name )
+				$contentText . $this->getAfterPortletHTML( $name )
 			)
 		);
 
@@ -557,5 +556,23 @@ class MonoBookTemplate extends BaseTemplate {
 		$html .= Html::closeElement( 'div' );
 
 		return $html;
+	}
+
+	/**
+	 * Gets after portal HTML and wraps it with div and class
+	 *
+	 * @param string $name
+	 * @return string html
+	 */
+	private function getAfterPortletHTML( $name ) {
+		$content = $this->getSkin()->getAfterPortlet( $name );
+		if ( $content !== '' ) {
+			return Html::rawElement(
+				'div',
+				[ 'class' => [ 'after-portlet', 'after-portlet-' . $name ] ],
+				$content
+			);
+		}
+		return '';
 	}
 }
