@@ -14,7 +14,15 @@
 		"MediaWiki": ">= 1.36.0"
 	},
 	"ValidSkinNames": {
-		"monobook": "MonoBook"
+		"monobook": {
+			"class": "MonoBook\\SkinMonoBook",
+			"args": [
+				{
+					"name": "monobook",
+					"template": "MonoBook\\MonoBookTemplate"
+				}
+			]
+		}
 	},
 	"SkinOOUIThemes": {
 		"monobook": "Apex"
@@ -26,8 +34,8 @@
 		"monobook": "resources/mediawiki.less"
 	},
 	"Hooks": {
-		"OutputPageBodyAttributes": "SkinMonoBook::onOutputPageBodyAttributes",
-		"GetPreferences": "SkinMonoBook::onGetPreferences"
+		"OutputPageBodyAttributes": "MonoBook\\Hooks::onOutputPageBodyAttributes",
+		"GetPreferences": "MonoBook\\Hooks::onGetPreferences"
 	},
 	"MessagesDirs": {
 		"MonoBook": [
@@ -147,9 +155,8 @@
 			"+ext.relatedArticles.readMore": "resources/skinStyles/ext.relatedArticles.readMore.less"
 		}
 	},
-	"AutoloadClasses": {
-		"SkinMonoBook": "includes/SkinMonoBook.php",
-		"MonoBookTemplate": "includes/MonoBookTemplate.php"
+	"AutoloadNamespaces": {
+		"MonoBook\\": "includes/"
 	},
 	"manifest_version": 2
 }

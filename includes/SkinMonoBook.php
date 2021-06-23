@@ -24,16 +24,16 @@
  * @ingroup Skins
  */
 
+namespace MonoBook;
+
+use OutputPage;
+use SkinTemplate;
+
 /**
  * Inherit main code from SkinTemplate, set the CSS and template filter.
  * @ingroup Skins
  */
 class SkinMonoBook extends SkinTemplate {
-	/** Using MonoBook. */
-	public $skinname = 'monobook';
-	public $stylename = 'MonoBook';
-	public $template = 'MonoBookTemplate';
-
 	/**
 	 * @inheritDoc
 	 * @return bool
@@ -61,43 +61,5 @@ class SkinMonoBook extends SkinTemplate {
 		$out->addModuleStyles( [
 			$styleModule
 		] );
-	}
-
-	/**
-	 * Add the "monobook-capitalize-all-nouns" CSS class to the <body> element for German
-	 * (de) and various languages which have German set as a fallback language, such
-	 * as Colognian (ksh) and others.
-	 *
-	 * @see https://phabricator.wikimedia.org/T97892
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBodyAttributes
-	 * @param OutputPage $out
-	 * @param Skin $skin
-	 * @param array &$bodyAttrs Pre-existing attributes for the <body> element
-	 */
-	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
-		$lang = $skin->getLanguage();
-		if (
-			$skin->getSkinName() === 'monobook' && (
-				$lang->getCode() === 'de' ||
-				in_array( 'de', $lang->getFallbackLanguages() )
-			)
-		) {
-			$bodyAttrs['class'] .= ' monobook-capitalize-all-nouns';
-		}
-	}
-
-	/**
-	 * @param User $user
-	 * @param array &$preferences
-	 */
-	public static function onGetPreferences( User $user, array &$preferences ) {
-		$preferences['monobook-responsive'] = [
-			'type' => 'toggle',
-			'label-message' => 'monobook-responsive-label',
-			'section' => 'rendering/skin/skin-prefs',
-			// Only show this section when the Monobook skin is checked. The JavaScript client also uses
-			// this state to determine whether to show or hide the whole section.
-			'hide-if' => [ '!==', 'wpskin', 'monobook' ],
-		];
 	}
 }

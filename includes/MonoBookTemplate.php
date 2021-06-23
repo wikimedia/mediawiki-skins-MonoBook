@@ -24,6 +24,13 @@
  * @ingroup Skins
  */
 
+namespace MonoBook;
+
+use BaseTemplate;
+use Html;
+use Linker;
+use Sanitizer;
+
 /**
  * @ingroup Skins
  */
