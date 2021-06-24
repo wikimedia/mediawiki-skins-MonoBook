@@ -1,7 +1,9 @@
 /* eslint-disable no-jquery/no-global-selector */
 $( function () {
 	var mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
-		loadOptionalDependencies = require( './optional-enhancements.js' ),
+		isResponsive = document.body.classList.contains( 'skin--responsive' ),
+		echo = require( './mobile-echo.js' ),
+		uls = require( './mobile-uls.js' ),
 		// Track if DOM has been set up for mobile fanciness yet
 		monobookMobileElements = false,
 		// Toggles and targets for popouts
@@ -86,7 +88,14 @@ $( function () {
 		}
 	}
 
-	$( window ).on( 'resize', setupMonoBookMobile );
-	setupMonoBookMobile();
-	loadOptionalDependencies();
+	if ( isResponsive ) {
+		$( window ).on( 'resize', setupMonoBookMobile );
+		setupMonoBookMobile();
+		if ( mw.loader.getState( 'ext.uls.interface' ) !== null ) {
+			uls();
+		}
+		if ( mw.loader.getState( 'ext.echo.init' ) !== null && !mw.user.isAnon() ) {
+			echo();
+		}
+	}
 } );

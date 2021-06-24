@@ -15,10 +15,12 @@
 	},
 	"ValidSkinNames": {
 		"monobook": {
-			"class": "MonoBook\\SkinMonoBook",
+			"class": "SkinTemplate",
 			"args": [
 				{
 					"name": "monobook",
+					"scripts": [ "skins.monobook.scripts" ],
+					"styles": [ "skins.monobook.styles" ],
 					"responsive": true,
 					"template": "MonoBook\\MonoBookTemplate"
 				}
@@ -57,66 +59,19 @@
 				"i18n-all-lists-margins": true,
 				"i18n-headings": true
 			},
-			"styles": {
-				"resources/screen-common.less": {
-					"media": "screen"
-				},
-				"resources/screen-desktop.less": {
-					"media": "screen"
-				},
-				"resources/print-common.less": {
-					"media": "print"
-				}
-			}
+			"styles": [
+				"resources/skin.less",
+				"resources/skin-responsive.less"
+			]
 		},
-		"skins.monobook.responsive": {
-			"class": "ResourceLoaderSkinModule",
-			"features": {
-				"normalize": true,
-				"elements": true,
-				"logo": true,
-				"content": true,
-				"content-links": true,
-				"content-thumbnails": true,
-				"content-tables": true,
-				"interface": true,
-				"interface-message-box": true,
-				"interface-category": true,
-				"i18n-ordered-lists": true,
-				"i18n-all-lists-margins": true,
-				"i18n-headings": true
-			},
-			"targets": [
-				"desktop",
-				"mobile"
+		"skins.monobook.scripts": {
+			"targets": [ "desktop", "mobile" ],
+			"packageFiles": [
+				"resources/skin.js",
+				"resources/mobile-uls.js",
+				"resources/mobile-echo.js"
 			],
-			"styles": {
-				"resources/screen-common.less": {
-					"media": "screen"
-				},
-				"resources/screen-desktop.less": {
-					"media": "screen and (min-width: 551px)"
-				},
-				"resources/screen-mobile.less": {
-					"media": "screen and (max-width: 550px)"
-				},
-				"resources/print-common.less": {
-					"media": "print"
-				}
-			}
-		},
-		"skins.monobook.mobile.uls": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [ "resources/mobile-uls.js" ]
-		},
-		"skins.monobook.mobile.echohack": {
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [ "resources/mobile-echo.js" ],
-			"styles": {
-				"resources/mobile-echo.less": {
-					"media": "screen and (max-width: 550px)"
-				}
-			},
+			"styles": "resources/skin.js.less",
 			"dependencies": [
 				"oojs-ui.styles.icons-alerts",
 				"mediawiki.util"
@@ -124,21 +79,6 @@
 			"messages": [
 				"monobook-notifications-link",
 				"monobook-notifications-link-none"
-			]
-		},
-		"skins.monobook.mobile": {
-			"targets": [ "desktop", "mobile" ],
-			"packageFiles": [
-				"resources/mobile.js",
-				"resources/optional-enhancements.js"
-			],
-			"styles": {
-				"resources/mobile.js.less": {
-					"media": "screen and (max-width: 550px)"
-				}
-			},
-			"dependencies": [
-				"mediawiki.util"
 			]
 		}
 	},
