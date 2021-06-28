@@ -39,7 +39,7 @@ class SkinMonoBook extends SkinTemplate {
 	 * @return bool
 	 */
 	public function isResponsive() {
-		return $this->getUser()->getOption( 'monobook-responsive' );
+		return parent::isResponsive() || $this->getUser()->getOption( 'monobook-responsive' );
 	}
 
 	/**
