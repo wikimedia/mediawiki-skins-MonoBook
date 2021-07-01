@@ -24,7 +24,6 @@ namespace MonoBook;
 
 use OutputPage;
 use Skin;
-use User;
 
 class Hooks {
 	/**
@@ -48,20 +47,5 @@ class Hooks {
 		) {
 			$bodyAttrs['class'] .= ' monobook-capitalize-all-nouns';
 		}
-	}
-
-	/**
-	 * @param User $user
-	 * @param array &$preferences
-	 */
-	public static function onGetPreferences( User $user, array &$preferences ) {
-		$preferences['monobook-responsive'] = [
-			'type' => 'toggle',
-			'label-message' => 'monobook-responsive-label',
-			'section' => 'rendering/skin/skin-prefs',
-			// Only show this section when the Monobook skin is checked. The JavaScript client also uses
-			// this state to determine whether to show or hide the whole section.
-			'hide-if' => [ '!==', 'wpskin', 'monobook' ],
-		];
 	}
 }

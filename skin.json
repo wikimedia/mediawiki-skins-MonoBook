@@ -19,6 +19,7 @@
 			"args": [
 				{
 					"name": "monobook",
+					"responsive": true,
 					"template": "MonoBook\\MonoBookTemplate"
 				}
 			]
@@ -27,15 +28,11 @@
 	"SkinOOUIThemes": {
 		"monobook": "Apex"
 	},
-	"DefaultUserOptions": {
-		"monobook-responsive": true
-	},
 	"SkinLessImportPaths": {
 		"monobook": "resources/mediawiki.less"
 	},
 	"Hooks": {
-		"OutputPageBodyAttributes": "MonoBook\\Hooks::onOutputPageBodyAttributes",
-		"GetPreferences": "MonoBook\\Hooks::onGetPreferences"
+		"OutputPageBodyAttributes": "MonoBook\\Hooks::onOutputPageBodyAttributes"
 	},
 	"MessagesDirs": {
 		"MonoBook": [

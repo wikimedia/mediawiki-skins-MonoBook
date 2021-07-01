@@ -34,13 +34,6 @@ use SkinTemplate;
  * @ingroup Skins
  */
 class SkinMonoBook extends SkinTemplate {
-	/**
-	 * @inheritDoc
-	 * @return bool
-	 */
-	public function isResponsive() {
-		return parent::isResponsive() || $this->getUser()->getOption( 'monobook-responsive' );
-	}
 
 	/**
 	 * @inheritDoc
