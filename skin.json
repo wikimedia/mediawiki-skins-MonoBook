@@ -48,11 +48,17 @@
 			"features": {
 				"normalize": true,
 				"elements": true,
+				"logo": true,
 				"content": true,
 				"content-links": true,
+				"content-thumbnails": true,
+				"content-tables": true,
 				"interface": true,
-				"logo": true,
-				"legacy": true
+				"interface-message-box": true,
+				"interface-category": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true
 			},
 			"styles": {
 				"resources/screen-common.less": {
@@ -71,11 +77,17 @@
 			"features": {
 				"normalize": true,
 				"elements": true,
+				"logo": true,
 				"content": true,
 				"content-links": true,
+				"content-thumbnails": true,
+				"content-tables": true,
 				"interface": true,
-				"legacy": true,
-				"logo": true
+				"interface-message-box": true,
+				"interface-category": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true
 			},
 			"targets": [
 				"desktop",
@@ -118,15 +130,6 @@
 			]
 		},
 		"skins.monobook.mobile": {
-			"class": "ResourceLoaderSkinModule",
-			"features": {
-				"normalize": true,
-				"elements": true,
-				"content": true,
-				"interface": true,
-				"logo": true,
-				"legacy": true
-			},
 			"targets": [ "desktop", "mobile" ],
 			"packageFiles": [
 				"resources/mobile.js",
