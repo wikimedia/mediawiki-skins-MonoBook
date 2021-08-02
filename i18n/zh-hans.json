@@ -18,6 +18,5 @@
 	"monobook-more-actions": "更多",
 	"monobook-cactions-label": "页面操作",
 	"monobook-notifications-link": "通知（$1）",
-	"monobook-notifications-link-none": "通知",
-	"monobook-responsive-label": "启用响应式MonoBook设计"
+	"monobook-notifications-link-none": "通知"
 }
