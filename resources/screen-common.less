@@ -195,6 +195,24 @@ table.rimage {
 	}
 }
 
+/* Set `text-transform` only on languages where capitalization is not significant.
+** Translates to all, which don't carry `.monobook-capitalize-all-nouns` at `body`.
+*/
+body:not( .monobook-capitalize-all-nouns ) {
+	.portlet h3,
+	#p-personal ul,
+	#p-cactions ul li a {
+		text-transform: lowercase;
+	}
+}
+
+/* Don't lowercase username */
+li#pt-userpage,
+/* Sometimes people don't want personal tools to be lowercase! */
+.no-text-transform {
+	text-transform: none;
+}
+
 /*
 ** Logo properties
 */
