@@ -13,7 +13,8 @@
 	"monobook-jumptonavigation": "קפיצה לניווט",
 	"monobook-jumptosearch": "קפיצה לחיפוש",
 	"monobook-more-actions": "עוד",
-	"monobook-cactions-label": "פעולות בדף",
+	"cactions-mobile": "פעולות דף",
+	"monobook-cactions-label": "פעולות דף",
 	"monobook-notifications-link": "הודעות ($1)",
 	"monobook-notifications-link-none": "הודעות"
 }
