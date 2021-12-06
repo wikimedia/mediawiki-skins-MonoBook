@@ -5,13 +5,14 @@
 			"Lokal Profil",
 			"Mjälten",
 			"Skalman",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Sabelöga"
 		]
 	},
 	"skinname-monobook": "MonoBook",
 	"monobook-desc": "Det klassiska MediaWiki-utseendet sedan 2004, uppkallad efter det svart-vita foto på en bok som syns i bakgrunden på sidan.",
-	"monobook.css": "/* CSS som skrivs här kommer att påverka alla användare av utseendet MonoBook */",
-	"monobook.js": "/* JavaScript här kommer att laddas för dem som använder utseendet MonoBook */",
+	"monobook.css": "/* All CSS här kommer att läsas in för de som använder utseendet MonoBook */",
+	"monobook.js": "/* All JavaScript här kommer att läsas in för alla som använder utseendet MonoBook */",
 	"monobook-jumptotop": "tillbaka till början",
 	"monobook-jumptopersonal": "användarverktyg",
 	"monobook-jumptonavigation": "Hoppa till navigering",
