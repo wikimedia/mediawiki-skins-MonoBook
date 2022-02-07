@@ -16,5 +16,7 @@
 	"monobook-more-actions": "Mer",
 	"monobook-cactions-label": "Sidehandlinger",
 	"monobook-notifications-link": "Varsler ($1)",
-	"monobook-notifications-link-none": "Varsler"
+	"monobook-notifications-link-none": "Varsler",
+	"monobook-view-history": "Historikk",
+	"monobook-action-undelete": "Gjenopprett {{PLURAL:$1|én revisjon|$1 revisjoner}}"
 }

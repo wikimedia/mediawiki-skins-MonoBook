@@ -18,5 +18,7 @@
 	"cactions-mobile": "Azioni sulla pagina",
 	"monobook-cactions-label": "Azioni sulla pagina",
 	"monobook-notifications-link": "Notifiche ($1)",
-	"monobook-notifications-link-none": "Notifiche"
+	"monobook-notifications-link-none": "Notifiche",
+	"monobook-view-history": "Cronologia",
+	"monobook-action-undelete": "Recupera {{PLURAL:$1|una versione|$1 versioni}}"
 }

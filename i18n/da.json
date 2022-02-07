@@ -17,5 +17,7 @@
 	"monobook-more-actions": "Mere",
 	"monobook-cactions-label": "Sidehandlinger",
 	"monobook-notifications-link": "Notifikationer ($1)",
-	"monobook-notifications-link-none": "Notifikationer"
+	"monobook-notifications-link-none": "Notifikationer",
+	"monobook-view-history": "Historik",
+	"monobook-action-undelete": "Gendan {{PLURAL:$1|én redigering|$1 redigeringer}}"
 }

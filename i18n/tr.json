@@ -17,5 +17,7 @@
 	"cactions-mobile": "Sayfa eylemleri",
 	"monobook-cactions-label": "Sayfa eylemleri",
 	"monobook-notifications-link": "Bildirimler ($1)",
-	"monobook-notifications-link-none": "Bildirimler"
+	"monobook-notifications-link-none": "Bildirimler",
+	"monobook-view-history": "Geçmiş",
+	"monobook-action-undelete": "$1 değişikliği geri getir"
 }

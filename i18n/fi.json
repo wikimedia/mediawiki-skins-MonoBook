@@ -21,5 +21,7 @@
 	"cactions-mobile": "Sivun toiminnot",
 	"monobook-cactions-label": "Sivun toiminnot",
 	"monobook-notifications-link": "Ilmoitukset ($1)",
-	"monobook-notifications-link-none": "Ilmoitukset"
+	"monobook-notifications-link-none": "Ilmoitukset",
+	"monobook-view-history": "Historia",
+	"monobook-action-undelete": "Palauta {{PLURAL:$1|yksi muokkaus|$1 muokkausta}}"
 }

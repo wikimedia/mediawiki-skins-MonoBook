@@ -6,5 +6,7 @@
 	},
 	"skinname-monobook": "MonoBook",
 	"monobook.css": "/* Talvezout a raio ar CSS lakaet amañ evit implijerien ar gwiskadur Monobook */",
-	"monobook.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur MonoBook */"
+	"monobook.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur MonoBook */",
+	"monobook-view-history": "Istor",
+	"monobook-action-undelete": "Diziverkañ {{PLURAL:$1|ur c'hemm|$1 kemm}}"
 }
