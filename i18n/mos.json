@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Hasslaebetch"
 		]
 	},
 	"monobook-view-history": "Kudemde",
-	"monobook-action-undelete": "Ka Yēese {{Yagre:$1|a ye toeeme|$1 toeeme}}"
+	"monobook-action-undelete": "Ka yēese {{PLURAL:$1|a ye toeeme|$1 toeeme}}"
 }
