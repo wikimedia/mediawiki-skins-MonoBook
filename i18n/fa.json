@@ -5,7 +5,8 @@
 			"Ladsgroup",
 			"Reza1615",
 			"Jeeputer",
-			"Beginneruser"
+			"Beginneruser",
+			"Mohammad ebz"
 		]
 	},
 	"skinname-monobook": "مونوبوک",
@@ -18,7 +19,7 @@
 	"monobook-jumptosearch": "پرش به جستجو",
 	"monobook-more-actions": "بیشتر",
 	"monobook-cactions-label": "کنش‌های صفحه",
-	"monobook-notifications-link": "آگاه‌سازی‌ها ($1)",
-	"monobook-notifications-link-none": "آگاه‌سازی‌ها",
+	"monobook-notifications-link": "اعلان‌ها ($1)",
+	"monobook-notifications-link-none": "اعلان‌ها",
 	"monobook-responsive-label": "فعال‌سازی طرح واکنش‌گرای مونوبوک"
 }
