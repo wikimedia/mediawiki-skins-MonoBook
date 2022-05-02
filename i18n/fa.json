@@ -19,8 +19,8 @@
 	"monobook-jumptosearch": "پرش به جستجو",
 	"monobook-more-actions": "بیشتر",
 	"monobook-cactions-label": "کنش‌های صفحه",
-	"monobook-notifications-link": "اعلان‌ها ($1)",
-	"monobook-notifications-link-none": "اعلان‌ها",
+	"monobook-notifications-link": "آگاه‌سازی‌ها ($1)",
+	"monobook-notifications-link-none": "آگاه‌سازی‌ها",
 	"monobook-view-history": "تاریخچه",
 	"monobook-action-undelete": "احیای {{PLURAL:$1|یک ویرایش|$1 ویرایش}}"
 }
