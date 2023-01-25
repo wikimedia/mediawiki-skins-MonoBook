@@ -8,5 +8,6 @@
 	"monobook-more-actions": "Rhagor",
 	"monobook-notifications-link": "Hysbysiadau ($1)",
 	"monobook-notifications-link-none": "Hysbysiadau",
-	"monobook-view-history": "Hanes"
+	"monobook-view-history": "Hanes",
+	"monobook-action-undelete": "Adfer {{PLURAL:$1|golygiad|golygiad|olygiad|$1 golygiad}}"
 }
