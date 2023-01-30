@@ -109,6 +109,7 @@
 	"ResourceModuleSkinStyles": {
 		"monobook": {
 			"ext.echo.styles.badge": "resources/skinStyles/ext.echo.styles.badge.less",
+			"+mediawiki.action.view.filepage": "resources/skinStyles/mediawiki.action.view.filepage.less",
 			"+mediawiki.action.view.redirectPage": "resources/skinStyles/mediawiki.action.view.redirectPage.css",
 			"+mediawiki.notification": "resources/skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less",
