@@ -84,7 +84,6 @@
 			]
 		},
 		"skins.monobook.scripts": {
-			"targets": [ "desktop", "mobile" ],
 			"packageFiles": [
 				"resources/skin.js",
 				"resources/mobile-uls.js",
