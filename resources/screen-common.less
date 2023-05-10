@@ -26,7 +26,7 @@
 	position: relative;
 	z-index: 2;
 	background: @content-background;
-	color: @text-color;
+	color: @color-base;
 	border: 1px solid @content-border;
 	line-height: 1.5em;
 }
@@ -58,7 +58,7 @@ body {
 		url( images/headbg.svg ) 0 0 no-repeat,
 		@background url( images/headbg-gradient.svg ) 0 0 repeat-x;
 	// stylelint-enable value-list-comma-newline-after
-	color: @text-color;
+	color: @color-base;
 	direction: ltr; /* Needed for RTL flipping */
 	unicode-bidi: embed;
 }
@@ -170,7 +170,7 @@ table.rimage {
 
 .pBody {
 	font-size: 95%;
-	color: @text-color;
+	color: @color-base;
 	border-collapse: collapse;
 
 	/* allows .pBody styles to wrap around content added via SkinAfterPortlet hook */
@@ -220,7 +220,7 @@ li#pt-userpage,
 */
 /* "Not logged in" text in gray */
 li#pt-anonuserpage {
-	color: @text-grey;
+	color: @color-subtle;
 }
 
 /*
@@ -282,7 +282,7 @@ div.noarticletext {
 	border: 1px solid @content-border;
 	background: @content-background;
 	padding: 0.2em 1em;
-	color: @text-color;
+	color: @color-base;
 }
 
 #powersearch p {
