@@ -3,6 +3,7 @@
 */
 
 @import 'variables.less';
+@import 'mediawiki.mixins.less';
 
 #column-content {
 	padding-top: 6em;
@@ -60,7 +61,7 @@
 	box-sizing: border-box;
 
 	h3 {
-		.hidden();
+		.mixin-screen-reader-text();
 	}
 }
 

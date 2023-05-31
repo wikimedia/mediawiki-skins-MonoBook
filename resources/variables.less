@@ -1,7 +1,6 @@
 // Variables for common colors and other properties
 
 @import 'mediawiki.skin.variables.less';
-@import 'mediawiki.mixins';
 
 @background: #f9f9f9; // don't change this; matches headbg images
 @content-background: #fff;
@@ -13,11 +12,3 @@
 // mobile objects
 @top-position: 5px;
 @block-size: 35px;
-
-// Mixins
-// To hide objects, but keep them accessible for screen-readers
-.hidden() {
-	position: absolute;
-	top: -9999px;
-	left: 0;
-}

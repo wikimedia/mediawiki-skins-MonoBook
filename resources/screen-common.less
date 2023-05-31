@@ -10,6 +10,7 @@
 */
 
 @import 'variables.less';
+@import 'mediawiki.mixins.less';
 
 /*
 ** Common styles across desktop and mobile
@@ -33,7 +34,7 @@
 
 /* Hide, but keep accessible for screen-readers */
 #column-one h2 {
-	.hidden();
+	.mixin-screen-reader-text();
 }
 
 /* the left column width is specified in class .portlet */
