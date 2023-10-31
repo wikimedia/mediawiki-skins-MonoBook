@@ -4,6 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
+	"monobook-prefs-talkpage": "[[mw:Skin talk:MonoBook|{{int:talk}}]]",
 	"skinname-monobook": "Монобук",
 	"monobook-desc": "Класичното руво на МедијаВики од 2004 г. наречено по црно-белата слика на книга во позадината",
 	"monobook.css": "/* Тука поставениот CSS ќе се применува врз корисниците на рувото „Монобук“ */",
