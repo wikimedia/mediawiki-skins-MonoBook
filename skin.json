@@ -115,7 +115,7 @@
 			"+mediawiki.action.view.filepage": "resources/skinStyles/mediawiki.action.view.filepage.less",
 			"+mediawiki.action.view.redirectPage": "resources/skinStyles/mediawiki.action.view.redirectPage.css",
 			"+mediawiki.notification": "resources/skinStyles/mediawiki.notification.less",
-			"+oojs-ui-core.styles": "resources/skinStyles/ooui.less",
+			"+mediawiki.page.ready": "resources/skinStyles/teleportTarget.less",
 			"+ext.uls.interface": "resources/skinStyles/ext.uls.interface.less",
 			"+ext.relatedArticles.readMore": "resources/skinStyles/ext.relatedArticles.readMore.less"
 		}
