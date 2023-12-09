@@ -24,7 +24,7 @@ namespace MonoBook;
 
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
-use OutputPage;
+use MediaWiki\Output\OutputPage;
 use Skin;
 use SkinTemplate;
 
