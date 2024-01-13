@@ -67,7 +67,7 @@
 	},
 	"ResourceModules": {
 		"skins.monobook.styles": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"normalize": true,
 				"elements": true,
