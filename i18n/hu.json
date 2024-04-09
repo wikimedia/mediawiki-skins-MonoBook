@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dani",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Dj"
 		]
 	},
 	"skinname-monobook": "MonoBook",
@@ -14,6 +15,7 @@
 	"monobook-jumptonavigation": "Ugrás a navigációhoz",
 	"monobook-jumptosearch": "Ugrás a kereséshez",
 	"monobook-more-actions": "Több",
+	"cactions-mobile": "Lapműveletek",
 	"monobook-cactions-label": "Lapműveletek",
 	"monobook-notifications-link": "Értesítések ($1)",
 	"monobook-notifications-link-none": "Értesítések",
