@@ -19,6 +19,7 @@
 			"args": [
 				{
 					"name": "monobook",
+					"supportsMwHeading": true,
 					"responsive": true,
 					"templateDirectory": "templates/",
 					"scripts": [
