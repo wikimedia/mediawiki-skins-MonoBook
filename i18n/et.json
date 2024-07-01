@@ -4,6 +4,7 @@
 			"Pikne"
 		]
 	},
+	"monobook-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:MonoBook arutelu]",
 	"skinname-monobook": "MonoBook",
 	"monobook-desc": "2004. aastast pärinev klassikaline MediaWiki kujundus, mis on nime saanud lehekülje taustal oleva mustvalge raamatu foto järgi",
 	"monobook.css": "/* Siin asuv kaskaadilaadistik laaditakse kõigi MonoBooki-kujunduse kasutajate jaoks. */",
@@ -13,6 +14,7 @@
 	"monobook-jumptonavigation": "Mine navigeerimisribale",
 	"monobook-jumptosearch": "Mine otsikasti",
 	"monobook-more-actions": "Veel",
+	"cactions-mobile": "Lehekülje toimingud",
 	"monobook-cactions-label": "Lehetoimingud",
 	"monobook-notifications-link": "Teavitused ($1)",
 	"monobook-notifications-link-none": "Teavitused",
