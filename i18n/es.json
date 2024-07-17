@@ -4,6 +4,7 @@
 			"Adjen",
 			"Fitoschido",
 			"Macofe",
+			"Qwrop",
 			"Sanbec",
 			"Vivaelcelta"
 		]
@@ -17,6 +18,7 @@
 	"monobook-jumptonavigation": "Ir a la navegación",
 	"monobook-jumptosearch": "Ir a la búsqueda",
 	"monobook-more-actions": "Más",
+	"cactions-mobile": "Acciones de página",
 	"monobook-cactions-label": "Acciones de página",
 	"monobook-notifications-link": "Notificaciones ($1)",
 	"monobook-notifications-link-none": "Notificaciones",
