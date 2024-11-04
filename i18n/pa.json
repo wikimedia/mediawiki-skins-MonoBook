@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Cabal"
+		]
 	},
 	"skinname-monobook": "ਮੋਨੋਬੁੱਕ",
 	"monobook-view-history": "ਅਤੀਤ",
