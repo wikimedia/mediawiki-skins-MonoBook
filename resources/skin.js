@@ -1,11 +1,9 @@
 /* eslint-disable no-jquery/no-global-selector */
 $( () => {
-	let mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
+	const mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
 		isResponsive = document.body.classList.contains( 'skin--responsive' ),
 		echo = require( './mobile-echo.js' ),
 		uls = require( './mobile-uls.js' ),
-		// Track if DOM has been set up for mobile fanciness yet
-		monobookMobileElements = false,
 		// Toggles and targets for popouts
 		toggles = {
 			'#sidebar-toggle': '#sidebar-mobilejs',
@@ -14,6 +12,8 @@ $( () => {
 			'#ca-languages a': '#p-lang',
 			'#ca-tools a': '#p-tb'
 		};
+	// Track if DOM has been set up for mobile fanciness yet
+	let monobookMobileElements = false;
 
 	// Close menus
 	function closeMenus() {

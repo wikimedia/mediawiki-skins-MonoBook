@@ -1,9 +1,9 @@
 /* eslint-disable no-jquery/no-global-selector */
 module.exports = function () {
-	let mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
-		echoHacked = false,
+	const mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
+		notifications = $( '#pt-notifications-alert a' ).data( 'counter-num' ) + $( '#pt-notifications-notice a' ).data( 'counter-num' );
+	let echoHacked = false,
 		echoHackActive = false,
-		notifications = $( '#pt-notifications-alert a' ).data( 'counter-num' ) + $( '#pt-notifications-notice a' ).data( 'counter-num' ),
 		notificationsString;
 
 	// When the icons are clicked for the first time, they are replaced with a JS interface,
