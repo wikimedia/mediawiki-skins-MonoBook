@@ -1,7 +1,7 @@
 /* eslint-disable no-jquery/no-global-selector */
 module.exports = function () {
-	mw.loader.using( [ 'ext.uls.interface' ] ).then( function () {
-		var mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
+	mw.loader.using( [ 'ext.uls.interface' ] ).then( () => {
+		let mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
 			$ULSTrigger = $( '#pt-uls' ),
 			ULSMoved = false;
 

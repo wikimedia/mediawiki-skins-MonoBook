@@ -1,6 +1,6 @@
 /* eslint-disable no-jquery/no-global-selector */
 module.exports = function () {
-	var mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
+	let mobileMediaQuery = window.matchMedia( 'screen and (max-width: 550px)' ),
 		echoHacked = false,
 		echoHackActive = false,
 		notifications = $( '#pt-notifications-alert a' ).data( 'counter-num' ) + $( '#pt-notifications-notice a' ).data( 'counter-num' ),
@@ -14,7 +14,7 @@ module.exports = function () {
 
 	// Move echo badges in/out of p-personal
 	function monoBookMobileMoveEchoIcons() {
-		var $notificationIcons = getNotificationIcons();
+		const $notificationIcons = getNotificationIcons();
 		if ( $notificationIcons.length ) {
 			if ( !echoHackActive && mobileMediaQuery.matches ) {
 				$( '#echo-hack-badges' ).append( $notificationIcons );
@@ -29,7 +29,7 @@ module.exports = function () {
 	}
 
 	function monoBookMobileEchoHack() {
-		var $notificationIcons = getNotificationIcons();
+		const $notificationIcons = getNotificationIcons();
 		if ( $notificationIcons.length ) {
 			if ( !echoHacked && mobileMediaQuery.matches ) {
 				if ( notifications ) {
