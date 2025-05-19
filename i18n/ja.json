@@ -11,11 +11,12 @@
 			"青子守歌",
 			"Shirayuki",
 			"Kokage si",
-			"Yaakiyu.jp"
+			"Yaakiyu.jp",
+			"Foomin10"
 		]
 	},
 	"skinname-monobook": "モノブック",
-	"monobook-desc": "ページ背景にモノクロの本の写真があることから名付けられた、2004年以来のクラシックなMediaWikiスキン。",
+	"monobook-desc": "ページ背景にモノクロの本の写真があることから名付けられた、2004年以来のクラシックなMediaWiki外装。",
 	"monobook.css": "/* ここに記述したCSSは、モノブックスキンの利用者に読み込まれます */",
 	"monobook.js": "/* ここに記述したJavaScriptは、全てのモノブック外装利用者に読み込まれます */",
 	"monobook-jumptotop": "トップに戻る",
