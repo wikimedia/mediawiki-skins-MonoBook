@@ -27,6 +27,16 @@
 					"styles": [
 						"skins.monobook.styles"
 					],
+					"menus": [
+						"user-page",
+						"user-interface-preferences",
+						"notifications",
+						"user-menu",
+						"associated-pages",
+						"views",
+						"actions",
+						"variants"
+					],
 					"messages": [
 						"tagline",
 						"nstab-main",

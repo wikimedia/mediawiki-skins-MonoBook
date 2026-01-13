@@ -31,7 +31,7 @@
 			<div class="pBody">
 				<ul {{{html-user-language-attributes}}}>
 				{{! comments used to avoid additional whitespace}}
-				{{{data-namespaces.html-items}}}{{!
+				{{{data-associated-pages.html-items}}}{{!
 				}}{{{data-views.html-items}}}{{!
 				}}{{{data-actions.html-items}}}
 				{{{data-variants.html-items}}}
@@ -39,16 +39,19 @@
 			</div>
 		</div>
 		{{#data-cactions-mobile}}{{>Portlet}}{{/data-cactions-mobile}}
-		{{#data-personal}}
+		{{#data-user-menu}}
 		<div role="navigation" class="portlet" id="{{id}}" aria-labelledby="{{id}}-label">
 			<h3 id="{{id}}-label" {{{html-user-language-attributes}}}>{{label}}</h3>
 			<div class="pBody">
 				<ul {{{html-user-language-attributes}}}>
+				{{#data-user-interface-preferences}}{{{html-items}}}{{/data-user-interface-preferences}}
+				{{#data-user-page}}{{{html-items}}}{{/data-user-page}}
+				{{#data-notifications}}{{{html-items}}}{{/data-notifications}}
 				{{{html-items}}}
 				</ul>
 			</div>
 		</div>
-		{{/data-personal}}
+		{{/data-user-menu}}
 		<div class="portlet" id="p-logo" role="banner">
 			<a href="{{link-mainpage}}" class="mw-wiki-logo"></a>
 		</div>
