@@ -35,7 +35,10 @@
 						"associated-pages",
 						"views",
 						"actions",
-						"variants"
+						"variants",
+						"footer-info",
+						"footer-places",
+						"footer-icons"
 					],
 					"messages": [
 						"tagline",

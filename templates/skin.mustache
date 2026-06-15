@@ -81,22 +81,20 @@
 	<div class="visualClear"></div>
 	<div id="footer" class="mw-footer" role="contentinfo"
 		{{{html-user-language-attributes}}}>
-	{{#data-footer}}
-		{{#data-icons}}
+	{{#data-portlets.data-footer-icons}}
 		{{#array-items}}
 		<div id="f-{{name}}ico" class="footer-icons">
 			{{{html}}}
 		</div>
 		{{/array-items}}
-		{{/data-icons}}
+	{{/data-portlets.data-footer-icons}}
 		<ul id="f-list">
-			{{#data-info}}
+			{{#data-portlets.data-footer-info}}
 			{{#array-items}}<li id="{{name}}">{{{html}}}</li>{{/array-items}}
-			{{/data-info}}{{! no whitespace
-			}}{{#data-places}}{{! no whitespace
+			{{/data-portlets.data-footer-info}}{{! no whitespace
+			}}{{#data-portlets.data-footer-places}}{{! no whitespace
 			}}{{#array-items}}<li id="{{name}}">{{{html}}}</li>{{/array-items}}
-			{{/data-places}}
+			{{/data-portlets.data-footer-places}}
 		</ul>
-	{{/data-footer}}
 	</div>
 </div>
