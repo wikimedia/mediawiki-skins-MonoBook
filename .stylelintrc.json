@@ -6,6 +6,7 @@
 	"rules": {
 		"selector-class-pattern": null,
 		"selector-max-id": null,
-		"no-descending-specificity": null
+		"no-descending-specificity": null,
+		"wikimedia/selector-class-prefix": null
 	}
 }
